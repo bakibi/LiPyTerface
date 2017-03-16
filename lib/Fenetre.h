@@ -6,6 +6,6 @@ typedef struct Fenetre
 {
     GtkWidget *mother;
     char titre[15];
-    
+    Taille *t;
 
 } Fenetre;
