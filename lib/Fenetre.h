@@ -18,7 +18,7 @@ Fenetre *new_Fenetre(const char *titre,int type,Taille *t,int position,int decor
 
     Fenetre *f = (Fenetre *)malloc(sizeof(Fenetre));
     f->container = NULL;
-    f->taille = NULL;
+    f->t = NULL;
     f->titre = (char *)malloc(sizeof(char)*15);
     if(!f || !f->titre)
     {
