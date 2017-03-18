@@ -27,3 +27,4 @@ Fenetre *Fenetre_setPosition(Fenetre *f,int position);
 int Fenetre_getPosition(Fenetre *f);
 Fenetre *Fenetre_destroy(Fenetre *f);
 void Fenetre_setVisible(Fenetre *f,int verite);
+void Fenetre_setIcon(Fenetre *f,const char *filepath,const char *name);

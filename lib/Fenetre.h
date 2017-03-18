@@ -38,6 +38,7 @@ Fenetre *new_Fenetre(const char *titre,int type,Taille *t,int position,int decor
     f = Fenetre_setTaille(f,t);
     f = Fenetre_setTitre(f,titre);
     f = Fenetre_setPosition(f,position);
+    g_signal_connect (f->this, "destroy",G_CALLBACK (gtk_main_quit), NULL);
     return (Fenetre *)f;
 }//Fin de la fonction
 
@@ -69,15 +70,22 @@ Fenetre *Fenetre_destroy(Fenetre *f)
 
 
 
+//          Fonction setIcon
+//  Cette permet d'ajouter une icon situant dans le disque
+//      Entree: filePath le chemin de l'icone
+//              name     le nom de l'icon
+//      Sortie: NONE
+void Fenetre_setIcon(Fenetre *f,const char *filepath,const char *name)
+{
+    gtk_window_set_default_icon_from_file(filepath,NULL);
+    gtk_window_set_default_icon_name (name);
+}//fin de la fonction
 
 
 
 
-
-
-
-
-//          LES SETTERS ET LES GETTERS
+/* ****************************************************************************************** */
+//                                     LES SETTERS ET LES GETTERS
 //  FONCTION Container
 //      Fonction set
 Fenetre *Fenetre_setContainer(Fenetre *f,Container *c)
