@@ -1,15 +1,5 @@
 /*  Cette page est reservé pour l'utilité Taille   */
 
-/*
-    La Structure Taille :
-*/
-typedef struct Taille
-{
-    int x;  //  horizontal
-    int y;  //  Vertical
-}Taille;
-
-
 
 //          Les Fonctions :
 //  Fonction de creation d'Objet
@@ -76,5 +66,22 @@ int Taille_set_y(Taille *t,int y)
         exit(-1);
     }
     t->y = y;
+    return (Taille *)t;
+}
+
+
+//      Fonction clone : cette fonction clone un objet (ses valeurs à un nouveau objet)
+//  Entree  :   Taille qu on veut cloner
+//  Sortie  :   Nouvelle taille 
+Taille  *Taille_cloner(Taille *t1)
+{
+    Taille *t = (Taille *)malloc(sizeof(Taille));
+    if(!t)
+    {
+        printf("Erreur ! Allocation en l'objet Taille .\n");
+        exit(-1);
+    }
+    t->x = t1->x;
+    t->y = t1->y;
     return (Taille *)t;
 }
