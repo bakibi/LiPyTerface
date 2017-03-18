@@ -27,6 +27,8 @@ typedef struct Container
 /* 
     La Structure Fenetre :
 */
+enum {NORMAL,POP};
+enum {P_NONE,P_CENTER,P_MOUSE,P_CENTER_ON_PARENT};
 typedef struct Fenetre
 {
     GtkWidget *this;                //  l'identité de la fenetre

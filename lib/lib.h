@@ -1,3 +1,4 @@
+#include <string.h>
 #include "Structures.h"
 #include "Prototypes.h"
 
