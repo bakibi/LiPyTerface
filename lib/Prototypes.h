@@ -11,5 +11,9 @@ int Taille_set_y(Taille *t,int y);
 Taille  *Taille_cloner(Taille *t1);
 
 
+//      SD  :   Container
+Container *new_Container(int type,int direction,char *name);
+
+
 
 //      SD  :   Fenetre
