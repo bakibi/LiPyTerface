@@ -18,7 +18,7 @@ Container *new_Container(int type,int direction,char *name)
         exit(-1);
     }
     c->type = type;
-    switch type
+    switch (type)
     {
         case BOX:
                 if(direction == HORIZENTAL)

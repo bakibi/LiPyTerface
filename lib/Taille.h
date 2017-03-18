@@ -58,7 +58,7 @@ Taille *Taille_setX(Taille *t,int x)
 }
 
 //  Fonction set_y
-int Taille_setY(Taille *t,int y)
+Taille *Taille_setY(Taille *t,int y)
 {
     if(!t)
     {
