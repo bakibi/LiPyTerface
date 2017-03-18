@@ -33,7 +33,7 @@ typedef struct Fenetre
 {
     GtkWidget *this;                //  l'identité de la fenetre
     Container *container;              //  container de la fenetre                                                     
-    char titre[15];                 //  le titre de la fenetre    
+    char *titre;                 //  le titre de la fenetre    
     int type;                       //  le type de la fenetre 
     Taille *t;                      //  la taille de la fenetre
     int position;                   //  la position de la fenetre

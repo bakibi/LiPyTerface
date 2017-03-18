@@ -17,7 +17,10 @@ Fenetre *new_Fenetre(const char *titre,int type,Taille *t,int position,int decor
 {
 
     Fenetre *f = (Fenetre *)malloc(sizeof(Fenetre));
-    if(!f)
+    f->container = NULL;
+    f->taille = NULL;
+    f->titre = (char *)malloc(sizeof(char)*15);
+    if(!f || !f->titre)
     {
         printf("Erreur ! Allocation de memoire Fenetre \n");
         exit(-1);
@@ -60,7 +63,7 @@ void Fenetre_setVisible(Fenetre *f,int verite)
 Fenetre *Fenetre_destroy(Fenetre *f)
 {
     gtk_widget_destroy(f->this);
-    free(f);
+    if(f) free(f);
     return NULL;
 }
 
@@ -79,10 +82,10 @@ Fenetre *Fenetre_destroy(Fenetre *f)
 //      Fonction set
 Fenetre *Fenetre_setContainer(Fenetre *f,Container *c)
 {
-    if(f->container)
+    if(f->container != NULL)
     {
         gtk_container_remove(GTK_CONTAINER(f->this),f->container->this);
-        free(f->container);
+       if(f->container != NULL) free(f->container);
     }
     f->container = c;
     gtk_container_add(GTK_CONTAINER(f->this),c->this);
@@ -102,6 +105,7 @@ Fenetre *Fenetre_setTitre(Fenetre *f,const char *nvtitre)
 {
       strcpy(f->titre,"");
       strcpy(f->titre,nvtitre);
+      gtk_window_set_title(GTK_WINDOW(f->this),f->titre);
     if(!f->titre)
     {
         printf("Erreur! probleme de copiage du tire de la fenetre\n");
@@ -120,7 +124,8 @@ char *Fenetre_getTitre(Fenetre *f)
 //      Fonction set
 Fenetre *Fenetre_setTaille(Fenetre *f,Taille *t)
 {
-    free(f->t);
+    Taille *r = f->t;
+    if(!r) free(r);
     f->t = t;
     gtk_window_set_default_size(GTK_WINDOW(f->this),t->x,t->y);
     return (Fenetre *)f;
