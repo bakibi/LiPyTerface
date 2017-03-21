@@ -10,10 +10,9 @@
 int main(int argc , char** args)
 {
     gtk_init(&argc,&args);
-    Fenetre *f = new_Fenetre("ma premiere fenetre",NORMAL,new_Taille(200,500),P_CENTER,0);
+    Fenetre *f = new_Fenetre("ma premiere fenetre",NORMAL,new_Taille(500,500),P_CENTER,0);
     Fenetre_setIcon(f,"icon.PNG","mon icon");
     Fenetre_setVisible(f,1);
     gtk_main();
-
     return 0;
 }

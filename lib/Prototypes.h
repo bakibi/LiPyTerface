@@ -14,6 +14,11 @@ Taille  *Taille_cloner(Taille *t1);
 //      SD  :   Container
 Container *new_Container(int type,int direction,char *name);
 
+//      SD  :   Box
+Container *new_Box(int type,int espace);
+Container *Box_addFirst(Container *c,GtkWidget *w,int padding);
+Container *Box_addLast(Container *c,GtkWidget *w,int padding);
+
 
 
 //      SD  :   Fenetre
