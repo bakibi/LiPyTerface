@@ -12,7 +12,7 @@ Taille  *Taille_cloner(Taille *t1);
 
 
 //      SD  :   Container
-Container *new_Container(int type,int direction,char *name);
+Container *new_Container();
 
 //      SD  :   Box
 Container *new_Box(int type,int espace);
