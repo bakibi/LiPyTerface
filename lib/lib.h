@@ -6,3 +6,4 @@
 #include "Taille.h"
 #include "Container.h"
 #include "Fenetre.h"
+#include "Box.h"
