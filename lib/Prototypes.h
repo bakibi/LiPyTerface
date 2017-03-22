@@ -36,3 +36,5 @@ int Fenetre_getPosition(Fenetre *f);
 Fenetre *Fenetre_destroy(Fenetre *f);
 void Fenetre_setVisible(Fenetre *f,int verite);
 void Fenetre_setIcon(Fenetre *f,const char *filepath,const char *name);
+Fenetre *Fenetre_setBackgroundColor(Fenetre *f,float red,float green,float blue,float opacity);
+Fenetre *Fenetre_setForegroundColor(Fenetre *f,float red,float green,float blue,float opacity);

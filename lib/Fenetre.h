@@ -85,6 +85,48 @@ void Fenetre_setIcon(Fenetre *f,const char *filepath,const char *name)
 
 
 
+//          Fonction de saisie de color of background
+//  Cette fonction mets une couleur dans le background
+//      Entree: RGB les valeur doivent etre en hexa
+//      Sortie: La fentre modifier
+Fenetre *Fenetre_setBackgroundColor(Fenetre *f,float red,float green,float blue,float opacity)
+{
+    GdkRGBA color;
+    color.red = red;
+    color.green = green;
+    color.blue = blue;
+    color.alpha = opacity;
+    gtk_widget_override_background_color(f->this, GTK_STATE_NORMAL, &color);
+
+    return (Fenetre *)f;
+}//fin de la fonction
+
+
+
+
+
+
+
+
+//          Fonction de saisie de color of font
+//  Cette fonction mets une couleur dans le background
+//      Entree: RGB les valeur doivent etre en hexa
+//      Sortie: La fentre modifier
+Fenetre *Fenetre_setForegroundColor(Fenetre *f,float red,float green,float blue,float opacity)
+{
+    GdkRGBA color;
+    color.red = red;
+    color.green = green;
+    color.blue = blue;
+    color.alpha = opacity;
+    gtk_widget_override_color(f->this, GTK_STATE_NORMAL, &color);
+
+    return (Fenetre *)f;
+}//fin de la f
+
+
+
+
 
 /* ****************************************************************************************** */
 //                                     LES SETTERS ET LES GETTERS
