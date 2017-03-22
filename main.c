@@ -10,7 +10,7 @@
 int main(int argc , char** args)
 {
     gtk_init(&argc,&args);
-    Fenetre *f = new_Fenetre("ma premiere fenetre",NORMAL,new_Taille(0,0),P_CENTER,0);
+    Fenetre *f = new_Fenetre("ma premiere fenetre",NORMAL,new_Taille(0,0),P_CENTER);
     Fenetre_setIcon(f,"icon.PNG","mon icon");
     Container *c = new_Grid();
     f = Fenetre_setContainer(f,c);

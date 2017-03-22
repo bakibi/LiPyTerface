@@ -11,9 +11,8 @@
 //              type de la fenetre
 //              taille de la fenetre
 //              position de la fenetre
-//              decoration
 //      Sortie:Une nouvelle Fenetre
-Fenetre *new_Fenetre(const char *titre,int type,Taille *t,int position,int decoration)
+Fenetre *new_Fenetre(const char *titre,int type,Taille *t,int position)
 {
 
     Fenetre *f = (Fenetre *)malloc(sizeof(Fenetre));
@@ -125,6 +124,23 @@ Fenetre *Fenetre_setForegroundColor(Fenetre *f,float red,float green,float blue,
 }//fin de la f
 
 
+
+
+//          Fonction qui fait le lien entre le window et le fichier
+//      Entree: path of the file 
+//      Sortie: une fenetre bien modifiés
+Fenetre *Fenetre_addCssFile(Fenetre *f,const char *path)
+{
+    GtkStyleContext *context;
+    GtkCssProvider *provider;
+    GFile *fi = g_file_new_for_path (path);
+
+    context = gtk_widget_get_style_context (f->this);
+    provider = gtk_css_provider_new ();
+    gtk_css_provider_load_from_file (GTK_CSS_PROVIDER (provider),fi,NULL);
+    gtk_style_context_add_provider (context,GTK_STYLE_PROVIDER (provider),GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+     g_object_unref (provider);
+}//fin de la focntion 
 
 
 

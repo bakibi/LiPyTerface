@@ -25,7 +25,7 @@ Container *new_Grid();
 Container *Grid_add(Container *c,GtkWidget *w,int gauche,int haut,int width,int height);
 
 //      SD  :   Fenetre
-Fenetre *new_Fenetre(const char *titre,int type,Taille *t,int position,int decoration);
+Fenetre *new_Fenetre(const char *titre,int type,Taille *t,int position);
 Fenetre *Fenetre_setContainer(Fenetre *f,Container *c);
 Fenetre *Fenetre_setTitre(Fenetre *f,const char *nvtitre);
 char *Fenetre_getTitre(Fenetre *f);
@@ -38,3 +38,4 @@ void Fenetre_setVisible(Fenetre *f,int verite);
 void Fenetre_setIcon(Fenetre *f,const char *filepath,const char *name);
 Fenetre *Fenetre_setBackgroundColor(Fenetre *f,float red,float green,float blue,float opacity);
 Fenetre *Fenetre_setForegroundColor(Fenetre *f,float red,float green,float blue,float opacity);
+Fenetre *Fenetre_addCssFile(Fenetre *f,const char *path);
