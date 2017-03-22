@@ -1,19 +1,23 @@
-/****   Cette page est reservé au compososant  de LA FENTERE        ***/
+
+/****************************************************************************
+ ****************************************************************************
+ ****		Cette page est reservé au compososant  de LA FENTERE		 ****
+ ****************************************************************************
+ ****************************************************************************/
 
 
 
+/****************************************************************************
+ *					Fonction de creation de la Fenetre						*
+ ****************************************************************************
+ *		Entree	:	titre de lafenetre										*
+ *					type de la fenetre										*	
+ *					taille de la fenetre									*
+ *					position de la fenetre									*
+ *      Sortie	:	Une nouvelle Fenetre									*
+ ****************************************************************************/
 
-
-
-
-//          Fonction de creation de la Fenetre
-//      Entree: titre de lafenetre
-//              type de la fenetre
-//              taille de la fenetre
-//              position de la fenetre
-//              decoration
-//      Sortie:Une nouvelle Fenetre
-Fenetre *new_Fenetre(const char *titre,int type,Taille *t,int position,int decoration)
+Fenetre *new_Fenetre(const char *titre,int type,Taille *t,int position)
 {
 
     Fenetre *f = (Fenetre *)malloc(sizeof(Fenetre));
@@ -33,21 +37,28 @@ Fenetre *new_Fenetre(const char *titre,int type,Taille *t,int position,int decor
         f->this = gtk_window_new(GTK_WINDOW_POPUP);
         
     
-    Container *c = new_Box(HORIZENTAL,0);
+    Container *c = new_Container(BOX,VERTICAL,NULL);
     f = Fenetre_setContainer(f,c);
     f = Fenetre_setTaille(f,t);
     f = Fenetre_setTitre(f,titre);
     f = Fenetre_setPosition(f,position);
+
     g_signal_connect (f->this, "destroy",G_CALLBACK (gtk_main_quit), NULL);
+
     return (Fenetre *)f;
 }//Fin de la fonction
 
+/****************************************************************************
+ *							Fonction setVisible								*
+ ****************************************************************************
+ *	Cette fonction met une fenetre dans un etat visible ou pas				*
+ ****************************************************************************
+ *		Entree	:	Fenetre													*
+ *					Booléen													*
+ *      Sortie	:	void													*
+ ****************************************************************************/
 
-//          FOnction setVisible
-//  Cette fonction met une fenetre dans un etat visible ou pas
-//      Entree: Fenetre et verite (0,1)
-//      Sortie: NONE
-void Fenetre_setVisible(Fenetre *f,int verite)
+void Fenetre_setVisible(Fenetre *f,gboolean verite)
 {
     if(verite)
         gtk_widget_show_all(f->this);
@@ -55,12 +66,15 @@ void Fenetre_setVisible(Fenetre *f,int verite)
         gtk_widget_hide(f->this);        
 }
 
+/****************************************************************************
+ *							Fonction destroy								*
+ ****************************************************************************
+ *	cette fonction detruit difinitivement une fenetre						*
+ ****************************************************************************
+ *		Entree	:	Fenetre à detruire										*
+ *      Sortie	:	pointeur NULL											*
+ ****************************************************************************/
 
-
-//          Fonction destroy
-//  cette fonction detruit difinitivement une fenetre
-//      ENtree: Fenetre à detruire
-//      Sortie: pointeur null
 Fenetre *Fenetre_destroy(Fenetre *f)
 {
     gtk_widget_destroy(f->this);
@@ -68,13 +82,16 @@ Fenetre *Fenetre_destroy(Fenetre *f)
     return NULL;
 }
 
+/****************************************************************************
+ *							Fonction setIcon								*
+ ****************************************************************************
+ *	Cette permet d'ajouter une icon situant dans le disque					*
+ **************************************************************************** 
+ *	Entree	:	filePath	le chemin de l'icone							*
+ *              name		le nom de l'icon								*
+ *	Sortie	:	void														*
+ ****************************************************************************/
 
-
-//          Fonction setIcon
-//  Cette permet d'ajouter une icon situant dans le disque
-//      Entree: filePath le chemin de l'icone
-//              name     le nom de l'icon
-//      Sortie: NONE
 void Fenetre_setIcon(Fenetre *f,const char *filepath,const char *name)
 {
     
@@ -83,54 +100,18 @@ void Fenetre_setIcon(Fenetre *f,const char *filepath,const char *name)
     //gtk_window_set_default_icon_name (name);
 }//fin de la fonction
 
-
-
-//          Fonction de saisie de color of background
-//  Cette fonction mets une couleur dans le background
-//      Entree: RGB les valeur doivent etre en hexa
-//      Sortie: La fentre modifier
-Fenetre *Fenetre_setBackgroundColor(Fenetre *f,float red,float green,float blue,float opacity)
-{
-    GdkRGBA color;
-    color.red = red;
-    color.green = green;
-    color.blue = blue;
-    color.alpha = opacity;
-    gtk_widget_override_background_color(f->this, GTK_STATE_NORMAL, &color);
-
-    return (Fenetre *)f;
-}//fin de la fonction
+/****************************************************************************
+ ****************************************************************************
+ ******							LES ACCESSEURS						   ******
+ ****************************************************************************
+ ****************************************************************************/
 
 
 
+/****************************************************************************
+ *								CONTAINER									*
+ ****************************************************************************/
 
-
-
-
-
-//          Fonction de saisie de color of font
-//  Cette fonction mets une couleur dans le background
-//      Entree: RGB les valeur doivent etre en hexa
-//      Sortie: La fentre modifier
-Fenetre *Fenetre_setForegroundColor(Fenetre *f,float red,float green,float blue,float opacity)
-{
-    GdkRGBA color;
-    color.red = red;
-    color.green = green;
-    color.blue = blue;
-    color.alpha = opacity;
-    gtk_widget_override_color(f->this, GTK_STATE_NORMAL, &color);
-
-    return (Fenetre *)f;
-}//fin de la f
-
-
-
-
-
-/* ****************************************************************************************** */
-//                                     LES SETTERS ET LES GETTERS
-//  FONCTION Container
 //      Fonction set
 Fenetre *Fenetre_setContainer(Fenetre *f,Container *c)
 {
@@ -144,6 +125,7 @@ Fenetre *Fenetre_setContainer(Fenetre *f,Container *c)
 
     return (Fenetre *)f;
 }//fin de la fonction
+
 //      Fonction get
 Container *Fenetre_getContainer(Fenetre *f)
 {
@@ -151,7 +133,10 @@ Container *Fenetre_getContainer(Fenetre *f)
 }//Fin de la fonction
 
 
-//  FONCTION titre
+/****************************************************************************
+ *									TITRE									*
+ ****************************************************************************/
+
 //      Fonction set
 Fenetre *Fenetre_setTitre(Fenetre *f,const char *nvtitre)
 {
@@ -165,14 +150,17 @@ Fenetre *Fenetre_setTitre(Fenetre *f,const char *nvtitre)
     }
     return (Fenetre *)f;
 }//fin de la fonction
+
 //      Fonction set
 char *Fenetre_getTitre(Fenetre *f)
 {
     return f->titre;
 }//fin de la fonction 
 
+/****************************************************************************
+ *									TAILLE									*
+ ****************************************************************************/
 
-//  FONCTION Taille
 //      Fonction set
 Fenetre *Fenetre_setTaille(Fenetre *f,Taille *t)
 {
@@ -182,6 +170,7 @@ Fenetre *Fenetre_setTaille(Fenetre *f,Taille *t)
     gtk_window_set_default_size(GTK_WINDOW(f->this),t->x,t->y);
     return (Fenetre *)f;
 }//fin de la fonction
+
 //      Fonction set
 Taille *Fenetre_getTaille(Fenetre *f)
 {
@@ -189,7 +178,10 @@ Taille *Fenetre_getTaille(Fenetre *f)
 }//fin de la fonction
 
 
-//  FONCTION Position
+/****************************************************************************
+ *									POSITION								*
+ ****************************************************************************/
+
 //      Fonction set
 Fenetre *Fenetre_setPosition(Fenetre *f,int position)
 {
@@ -209,10 +201,9 @@ Fenetre *Fenetre_setPosition(Fenetre *f,int position)
     };
     return (Fenetre *)f;
 }//fin de la fonction
+
 //      Fonction set
 int Fenetre_getPosition(Fenetre *f)
 {
     return f->position;
 }//fin de la fonction
-
-
