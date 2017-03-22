@@ -20,6 +20,9 @@ Container *Box_addFirst(Container *c,GtkWidget *w,int padding);
 Container *Box_addLast(Container *c,GtkWidget *w,int padding);
 
 
+//      SD  :   GRID
+Container *new_Grid();
+Container *Grid_add(Container *c,GtkWidget *w,int gauche,int haut,int width,int height);
 
 //      SD  :   Fenetre
 Fenetre *new_Fenetre(const char *titre,int type,Taille *t,int position,int decoration);
