@@ -24,6 +24,10 @@ Container *Box_addLast(Container *c,GtkWidget *w,int padding);
 Container *new_Grid();
 Container *Grid_add(Container *c,GtkWidget *w,int gauche,int haut,int width,int height);
 
+//      SD  :   FLOWBOX
+Container *new_FlowBox();
+Container *FlowBox_add(Container *c,GtkWidget *w,int position);
+
 //      SD  :   Fenetre
 Fenetre *new_Fenetre(const char *titre,int type,Taille *t,int position);
 Fenetre *Fenetre_setContainer(Fenetre *f,Container *c);
