@@ -7,6 +7,8 @@
 #include <gdk/gdk.h>
 #include "lib/lib.h"
 
+
+
 int main(int argc , char** args)
 {
     gtk_init(&argc,&args);
@@ -17,6 +19,7 @@ int main(int argc , char** args)
     c = Grid_add(c,gtk_label_new("label1"),0,0,1,1);
     c = Grid_add(c,gtk_label_new("label2"),1,0,1,1);
     c = Grid_add(c,gtk_label_new("label3"),0,1,2,1);
+    Fenetre_agrandir(f);
     Fenetre_setVisible(f,1);
     f = Fenetre_setForegroundColor(f, 0.4, 0.5, 0.1, 1);
     gtk_main();

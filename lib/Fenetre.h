@@ -134,6 +134,20 @@ Fenetre *Fenetre_addCssFile(Fenetre *f,const char *path)
 
 
 
+//          Fonction qui agrandie totalement une fenetre 
+//      Entree: la fenetre
+//      Sortie: NONE
+void Fenetre_agrandir(Fenetre *f)
+{
+	GdkScreen * ecran = gtk_window_get_screen(GTK_WINDOW(f->this));
+
+	gint x = gdk_screen_get_width(ecran),
+		 y = gdk_screen_get_height(ecran);
+
+    gtk_window_set_default_size(GTK_WINDOW(f->this),x,y);
+
+}//fin de la fonction
+
 
 /****************************************************************************
  ****************************************************************************

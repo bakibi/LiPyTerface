@@ -39,3 +39,4 @@ void Fenetre_setIcon(Fenetre *f,const char *filepath,const char *name);
 Fenetre *Fenetre_setBackgroundColor(Fenetre *f,float red,float green,float blue,float opacity);
 Fenetre *Fenetre_setForegroundColor(Fenetre *f,float red,float green,float blue,float opacity);
 Fenetre *Fenetre_addCssFile(Fenetre *f,const char *path);
+void Fenetre_agrandir(Fenetre *f);
