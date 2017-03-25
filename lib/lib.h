@@ -10,3 +10,4 @@
 #include "Grid.h"
 #include "FlowBox.h"
 #include "Stack.h"
+#include "Fixed.h"

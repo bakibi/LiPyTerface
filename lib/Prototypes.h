@@ -37,6 +37,13 @@ Container *Stack_setVisibleChild(Container *c,GtkWidget *w);
 Container *Stack_getStackSidebar(Container *cc);
 
 
+
+//      SD  :   Fixed
+Container *new_Fixed();
+Container *Fixed_add(Container *c,GtkWidget *w,int x,int y);
+Container *Fixed_move(Container *c,GtkWidget *w,int x,int y);
+
+
 //      SD  :   Fenetre
 Fenetre *new_Fenetre(const char *titre,int type,Taille *t,int position);
 Fenetre *Fenetre_setContainer(Fenetre *f,Container *c);
