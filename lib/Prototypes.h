@@ -33,6 +33,7 @@ Container *FlowBox_add(Container *c,GtkWidget *w,int position);
 Container *new_Stack();
 Container *Stack_add(Container *c,GtkWidget *w,const char *nom);
 Container *Stack_getStackSwitch(Container *cc);
+Container *Stack_setVisibleChild(Container *c,GtkWidget *w);
 
 
 //      SD  :   Fenetre

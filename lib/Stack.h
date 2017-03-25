@@ -51,3 +51,14 @@ Container *Stack_getStackSwitch(Container *cc)
 
     return (Container *)c;
 }
+
+
+
+//          Fonction qui choisie quel fils doit etre afficher en premier
+//      ENtree: le fils 
+//      Sortie : le container bien modifier
+Container *Stack_setVisibleChild(Container *c,GtkWidget *w)
+{
+    gtk_stack_set_visible_child(GTK_STACK(c->this),w);
+    return (Container *)c;
+}
