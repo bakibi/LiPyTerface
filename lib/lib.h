@@ -9,3 +9,4 @@
 #include "Box.h"
 #include "Grid.h"
 #include "FlowBox.h"
+#include "Stack.h"

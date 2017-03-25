@@ -28,6 +28,13 @@ Container *Grid_add(Container *c,GtkWidget *w,int gauche,int haut,int width,int 
 Container *new_FlowBox();
 Container *FlowBox_add(Container *c,GtkWidget *w,int position);
 
+
+//      SD  :   STACK
+Container *new_Stack();
+Container *Stack_add(Container *c,GtkWidget *w,const char *nom);
+Container *Stack_getStackSwitch(Container *cc);
+
+
 //      SD  :   Fenetre
 Fenetre *new_Fenetre(const char *titre,int type,Taille *t,int position);
 Fenetre *Fenetre_setContainer(Fenetre *f,Container *c);
