@@ -23,7 +23,7 @@ int main(int argc , char** args)
     c = Stack_add(c,gtk_label_new("label 3"),"label3");
     
     c1 = FlowBox_add(c1,c->this,1);
-    c1 = FlowBox_add(c1,Stack_getStackSwitch(c)->this,0);
+    c1 = FlowBox_add(c1,Stack_getStackSidebar(c)->this,0);
     Fenetre_setVisible(f,1);
     f = Fenetre_setForegroundColor(f, 0.4, 0.5, 0.1, 1);
     gtk_main();

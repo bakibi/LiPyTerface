@@ -34,6 +34,7 @@ Container *new_Stack();
 Container *Stack_add(Container *c,GtkWidget *w,const char *nom);
 Container *Stack_getStackSwitch(Container *cc);
 Container *Stack_setVisibleChild(Container *c,GtkWidget *w);
+Container *Stack_getStackSidebar(Container *cc);
 
 
 //      SD  :   Fenetre

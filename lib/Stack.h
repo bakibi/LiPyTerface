@@ -37,6 +37,28 @@ Container *Stack_add(Container *c,GtkWidget *w,const char *nom)
 //          Fonction qui rend le panneau qui switch les pages
 //      Entree: le container qui f=doit etre de type Stack
 //      Sortie: le container qui contient le stackswitched
+Container *Stack_getStackSidebar(Container *cc)
+{
+    Container *c = (Container *)malloc(sizeof(Container));
+    if(!c)
+    {
+        printf("Erreur ! Probleme d'allocation du composant Container");
+        exit(-1);
+    }
+    c->type = STACKSIDEBAR;
+    c->this = gtk_stack_sidebar_new ();
+    gtk_stack_sidebar_set_stack(GTK_STACK_SIDEBAR(c->this),GTK_STACK(cc->this));
+
+    return (Container *)c;
+}//fin del afonction
+
+
+
+
+
+//          Fonction qui rend le panneau qui switch les pages
+//      Entree: le container qui f=doit etre de type Stack
+//      Sortie: le container qui contient le stackswitched
 Container *Stack_getStackSwitch(Container *cc)
 {
     Container *c = (Container *)malloc(sizeof(Container));
@@ -50,7 +72,14 @@ Container *Stack_getStackSwitch(Container *cc)
     gtk_stack_switcher_set_stack(GTK_STACK_SWITCHER(c->this),GTK_STACK(cc->this));
 
     return (Container *)c;
-}
+}//fin del afonction
+
+
+
+
+
+
+
 
 
 
@@ -61,4 +90,4 @@ Container *Stack_setVisibleChild(Container *c,GtkWidget *w)
 {
     gtk_stack_set_visible_child(GTK_STACK(c->this),w);
     return (Container *)c;
-}
+}//fin de la fonction 
