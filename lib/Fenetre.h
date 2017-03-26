@@ -113,7 +113,16 @@ Fenetre *Fenetre_setForegroundColor(Fenetre *f,float red,float green,float blue,
     return (Fenetre *)f;
 }//fin de la f
 
+Fenetre *Fenetre_setBackgroundColor(Fenetre *f,float red,float green,float blue,float opacity)
+{
 
+    GdkRGBA color;
+    color.red = red;
+    color.green = green;
+    color.blue = blue;
+    color.alpha = opacity;
+    gtk_widget_override_background_color(f->this, GTK_STATE_NORMAL, &color);
+}
 
 
 //          Fonction qui fait le lien entre le window et le fichier

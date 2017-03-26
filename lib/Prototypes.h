@@ -44,6 +44,15 @@ Container *Fixed_add(Container *c,GtkWidget *w,int x,int y);
 Container *Fixed_move(Container *c,GtkWidget *w,int x,int y);
 
 
+
+//      SD  :   Paned
+Container *new_Paned(int Orientation);
+Container *Paned_add1(Container *c,GtkWidget *w);
+Container *Paned_add2(Container *c,GtkWidget *w);
+Container *Paned_setHandPosition(Container *c, int position);
+Container *Paned_setHandVisible(Container *c,int v);
+
+
 //      SD  :   Fenetre
 Fenetre *new_Fenetre(const char *titre,int type,Taille *t,int position);
 Fenetre *Fenetre_setContainer(Fenetre *f,Container *c);

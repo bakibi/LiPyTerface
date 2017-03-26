@@ -11,3 +11,4 @@
 #include "FlowBox.h"
 #include "Stack.h"
 #include "Fixed.h"
+#include "Paned.h"
