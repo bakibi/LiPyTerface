@@ -1,14 +1,17 @@
 #include <string.h>
-#include "Structures.h"
+#include "SD/Taille.h"
+#include "SD/Structures.h"
 #include "Prototypes.h"
 
 //Include compososant
-#include "Taille.h"
-#include "Container.h"
-#include "Fenetre.h"
-#include "Box.h"
-#include "Grid.h"
-#include "FlowBox.h"
-#include "Stack.h"
-#include "Fixed.h"
-#include "Paned.h"
+
+#include "Containers/Container.h"
+
+#include "Containers/Box.h"
+#include "Containers/Grid.h"
+#include "Containers/FlowBox.h"
+#include "Containers/Stack.h"
+#include "Containers/Fixed.h"
+#include "Containers/Paned.h"
+
+#include "Windows/Fenetre.h"
