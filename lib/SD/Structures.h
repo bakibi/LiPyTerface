@@ -40,3 +40,22 @@ typedef struct Fenetre
 
 } Fenetre;
 //--------------------------------------------
+
+
+
+
+
+/* 
+    La Structure Component :
+*/
+enum {LABEL,IMAGE,SPINNER,INFOBAR,PROGRESSBAR,LEVELBAR,ACCELLABEL,
+            BUTTON,CHECKBOX,RADIOBUTTON,TOGGLEBUTTON,LINKBUTTON,MENUBUTTON,SWITCH,
+            ENTRY,ENTRYBUFFER,ENTRYCOMPLETION,SCALE,SPINBUTTON,SEARCHENTRY,SEARCHBAR,EDITABLE,
+            TEXTVIEW,
+            COMBOBOX};
+typedef struct Component
+{
+    GtkWidget *this;                //  l'identité de la fenetre
+   int type ;                               //  le type du composant
+} Component;
+//--------------------------------------------
