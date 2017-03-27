@@ -69,3 +69,10 @@ Fenetre *Fenetre_setBackgroundColor(Fenetre *f,float red,float green,float blue,
 Fenetre *Fenetre_setForegroundColor(Fenetre *f,float red,float green,float blue,float opacity);
 Fenetre *Fenetre_addCssFile(Fenetre *f,const char *path);
 void Fenetre_agrandir(Fenetre *f);
+
+
+
+//      SD  :   Component
+Component *new_Component();
+
+
