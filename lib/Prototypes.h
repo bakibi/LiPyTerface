@@ -91,3 +91,10 @@ Component *Image_changeImage(Component *cp, const char *path,int size);
 
 //      SD  :   InfoBar
 Component *new_InfoBar(const char *msg,gboolean setClose,int type);
+
+
+
+//      SD  :   StatusBar
+Component *new_StatusBar();
+Component *StatusBar_empilerMSG(Component *cp,const char *msg,int id);
+Component *StatusBar_depilerMsg(Component *cp,int id);
