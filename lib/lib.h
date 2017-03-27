@@ -5,8 +5,9 @@
 
 //Include compososant
 
-#include "Containers/Container.h"
 
+// all the Containers
+#include "Containers/Container.h"
 #include "Containers/Box.h"
 #include "Containers/Grid.h"
 #include "Containers/FlowBox.h"
@@ -14,4 +15,12 @@
 #include "Containers/Fixed.h"
 #include "Containers/Paned.h"
 
+
+
+//all the windows
 #include "Windows/Fenetre.h"
+
+
+
+//all the component
+#include "Components/Component.h"
