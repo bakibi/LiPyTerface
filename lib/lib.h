@@ -26,3 +26,4 @@
 #include "Components/Component.h"
 #include "Components/Label.h"
 #include "Components/Image.h"
+#include "Components/infoBar.h"

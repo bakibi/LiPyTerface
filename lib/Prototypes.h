@@ -87,3 +87,7 @@ Component *Label_setText(Component *l,const char *str);
 //      SD  :   Image
 Component *new_Image(const char *path,int size);
 Component *Image_changeImage(Component *cp, const char *path,int size);
+
+
+//      SD  :   InfoBar
+Component *new_InfoBar(const char *msg,gboolean setClose,int type);
