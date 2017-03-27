@@ -15,4 +15,7 @@ Component *new_Component()
     cp->this = NULL;
     cp->type = -1;
     return (Component *)cp;
-}
+}//fin de la Fonction
+
+
+//          Fonction qui mais

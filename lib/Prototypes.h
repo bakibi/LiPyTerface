@@ -77,4 +77,4 @@ Component *new_Component();
 
 
 //      SD  :   Label
-Component *new_Label(const char *str);
+Component *new_Label(const char *str,int position,int isSelectable);
