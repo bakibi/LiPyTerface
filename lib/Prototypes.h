@@ -76,3 +76,5 @@ void Fenetre_agrandir(Fenetre *f);
 Component *new_Component();
 
 
+//      SD  :   Label
+Component *new_Label(const char *str);

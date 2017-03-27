@@ -1,6 +1,6 @@
 #include <string.h>
-#include "SD/Taille.h"
 #include "SD/Structures.h"
+#include "SD/Taille.h"
 #include "Prototypes.h"
 
 //Include compososant
@@ -24,3 +24,4 @@
 
 //all the component
 #include "Components/Component.h"
+#include "Components/Label.h"
