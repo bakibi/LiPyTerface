@@ -18,9 +18,12 @@ Fenetre *f = new_Fenetre("ma premiere fenetre",NORMAL,new_Taille(500,500),P_CENT
     Container *c1 = new_Paned(HORIZENTAL);
 
     f = Fenetre_setContainer(f,c1);
-
-    c1 = Paned_add1(c1,new_Label("salut éé àààدد لو ",1,1)->this);
-    c1 = Paned_add2(c1,new_Label("label 2",-1,0)->this);
+    Component *l1,*l2;
+    l1 = new_Label("Test",1,1);
+    l2 = new_Label("un text bien garnd",1,1);       
+    l2 = Label_setMarkup("<span style=\"italic\" >",l2,"</span>");
+    c1 = Paned_add1(c1,l1->this);
+    c1 = Paned_add2(c1,l2->this);
    
     Fenetre_setVisible(f,1);
     f = Fenetre_setForegroundColor(f, 0.4, 0.5, 0.1, 1);
