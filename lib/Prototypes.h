@@ -81,3 +81,9 @@ Component *new_Label(const char *str,int position,int isSelectable);
 Component *Label_setMarkup(const char *debut,Component *l,const char *fin);
 char *Label_getText(Component *l);
 Component *Label_setText(Component *l,const char *str);
+
+
+
+//      SD  :   Image
+Component *new_Image(const char *path,int size);
+Component *Image_changeImage(Component *cp, const char *path,int size);

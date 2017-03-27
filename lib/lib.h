@@ -25,3 +25,4 @@
 //all the component
 #include "Components/Component.h"
 #include "Components/Label.h"
+#include "Components/Image.h"
