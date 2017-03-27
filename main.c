@@ -14,7 +14,7 @@ int main(int argc , char** args)
     gtk_init(&argc,&args);
     Fenetre *f = new_Fenetre("ma premiere fenetre",NORMAL,new_Taille(500,500),P_CENTER);
 
-    Fenetre_setIcon(f,"icon.PNG","mon icon");
+    Fenetre_setIcon(f,"img/icon.PNG","mon icon");
     Container *c1 = new_Paned(HORIZENTAL);
 
     f = Fenetre_setContainer(f,c1);
