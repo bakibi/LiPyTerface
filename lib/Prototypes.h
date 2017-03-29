@@ -4,8 +4,8 @@
 
 
 //      SD  :   FOR ALL COMPONANT
-Fenetre *ALL_setBackgroundColor(GtkWidget *f,float red,float green,float blue,float opacity);
-Fenetre *ALL_setForegroundColor(GtkWidget *f,float red,float green,float blue,float opacity);
+void ALL_setBackgroundColor(GtkWidget *f,float red,float green,float blue,float opacity);
+void ALL_setForegroundColor(GtkWidget *f,float red,float green,float blue,float opacity);
 
 //      SD  :   Taille
 Taille *new_Taille(int x,int y);

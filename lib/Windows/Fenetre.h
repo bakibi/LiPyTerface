@@ -101,7 +101,7 @@ void Fenetre_setIcon(Fenetre *f,const char *filepath,const char *name)
 }//fin de la fonction
 
 
-Fenetre *ALL_setForegroundColor(GtkWidget *f,float red,float green,float blue,float opacity)
+ void ALL_setForegroundColor(GtkWidget *f,float red,float green,float blue,float opacity)
 {
     GdkRGBA color;
     color.red = red;
@@ -110,10 +110,10 @@ Fenetre *ALL_setForegroundColor(GtkWidget *f,float red,float green,float blue,fl
     color.alpha = opacity;
     gtk_widget_override_color(f, GTK_STATE_NORMAL, &color);
 
-    return (Fenetre *)f;
+    return ;
 }//fin de la f
 
-Fenetre *ALL_setBackgroundColor(GtkWidget *f,float red,float green,float blue,float opacity)
+void ALL_setBackgroundColor(GtkWidget *f,float red,float green,float blue,float opacity)
 {
 
     GdkRGBA color;
@@ -122,6 +122,7 @@ Fenetre *ALL_setBackgroundColor(GtkWidget *f,float red,float green,float blue,fl
     color.blue = blue;
     color.alpha = opacity;
     gtk_widget_override_background_color(f, GTK_STATE_NORMAL, &color);
+    return ;
 }
 
 
