@@ -26,6 +26,7 @@ void ApplicationMain()
     Box_addLast (vBox,footer->this  ,FALSE  ,FALSE  ,0);
 
     //  Making the window visible Visible
+
     Fenetre_setVisible(f,1);
 
 }//end of Function

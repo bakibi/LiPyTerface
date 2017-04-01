@@ -5,10 +5,10 @@
 //          Function de creation d un boutton
 //      Entree:
 //      Sortie:
-Component *new_Button()
+Component *new_Button(const char *label)
 {
     Component *cp = new_Component();
     cp->type = BUTTON;
-    cp->this = 
+    cp->this = gtk_button_new_with_label(label);
     return cp;
 }//fin de la fonction
