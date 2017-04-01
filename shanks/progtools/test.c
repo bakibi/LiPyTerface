@@ -4,6 +4,10 @@
 #include "lexical/numbers.h"
 int main(int argc,char **args)
 {
-    printf("Hello Wolrd 1\n");
+    char mot[] = "0.15+-156";
+
+    int i = 0;
+    for ( i = 0; i < 9; i++)
+        printf("%d\n",est_virgule(&mot[i]));
     return 0;
 }

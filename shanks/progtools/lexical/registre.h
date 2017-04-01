@@ -3,7 +3,7 @@
 
 
 //          All the kind of variables
-enum Var {WALOU,VAR,STRING,BOOLEAN,LIST,PILE,FIL};
+enum Var {WALOU,VAR,STRING,BOOLEAN,LIST,PILE,FIL,ARBRE};
 //          Operators
 enum Oper {PLUS,MOINS,DIV,MUL,MOD};
 //          Operator of condition
@@ -31,7 +31,12 @@ typedef struct File {
 Cellule *debut;
 Cellule *fin;
 }File;
-
+//          Arbre struct
+typedef struct Arbre 
+{
+    float value;
+    struct Arbre *fg,*fd;
+}Arbre ;
 //          Var : SD
 typedef struct variable
 {
@@ -44,7 +49,8 @@ typedef struct variable
     int *boolean_value;
     Pile *pile_value;
     File *file_value;
-    Liste liste_value;
+    Liste *liste_value;
+    Arbre *arbre_value;
 }variable;
 
 
