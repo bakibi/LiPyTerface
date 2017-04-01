@@ -8,7 +8,7 @@
 //      Entree: type : soit Horizental Soit vertical
 //              espace:
 //      Sortie:
-Container *new_Box(int type,int espace)
+Container* new_Box(int type, int espace, gboolean homogeneous)
 {
     Container *c = (Container *)malloc(sizeof(Container));
     if(!c)
@@ -17,15 +17,14 @@ Container *new_Box(int type,int espace)
         exit(-1);
     }
     c->type = BOX;
+    
     if( type == VERTICAL )
-    {
-        c->this = gtk_box_new(GTK_ORIENTATION_VERTICAL,espace); 
-    }
-    else {
-
+        c->this = gtk_box_new(GTK_ORIENTATION_VERTICAL,espace);
+    else 
         c->this = gtk_box_new(GTK_ORIENTATION_HORIZONTAL,espace); 
-    }
 
+    gtk_box_set_homogeneous(GTK_BOX(c->this), homogeneous);
+    
     return (Container *)c; 
 }//la fin de la fonction
 
@@ -35,13 +34,11 @@ Container *new_Box(int type,int espace)
 //              widget à mettre
 //              padding     
 //      Sortie: le Container avec l'element ajoute
-Container *Box_addFirst(Container *c,GtkWidget *w,int padding)
+Container *Box_addFirst(Container *c, GtkWidget *w, gboolean expand, gboolean fill, int padding)
 {
-    gtk_box_pack_start(GTK_BOX(c->this),w,FALSE,FALSE,padding);
-    
+    gtk_box_pack_start(GTK_BOX(c->this), w, expand, fill, padding);
     return (Container *)c;
 }//fin de la fonction
-
 
 
 
@@ -50,10 +47,9 @@ Container *Box_addFirst(Container *c,GtkWidget *w,int padding)
 //              widget à mettre
 //              padding     
 //      Sortie: le Container avec l'element ajoute
-Container *Box_addLast(Container *c,GtkWidget *w,int padding)
+Container *Box_addLast(Container *c, GtkWidget *w, gboolean expand, gboolean fill, int padding )
 {
-    gtk_box_pack_end(GTK_BOX(c->this),w,FALSE,FALSE,padding);
-    
+    gtk_box_pack_end(GTK_BOX(c->this), w, expand, fill, padding);
     return (Container *)c;
 }//fin de la fonction
 

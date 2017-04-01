@@ -5,7 +5,7 @@
 //              Cette fonction cree une instance du type container Paned
 //          Entree: VERTICAL or HORIZENTAL
 //          Sortie: Un container bien modifié
-Container *new_Paned(int Orientation)
+Container *new_Paned(int Orientation, int positionSeparateur)
 {
     Container *c = (Container *)malloc(sizeof(Container));
     if(!c)
@@ -23,7 +23,8 @@ Container *new_Paned(int Orientation)
         c->this = gtk_paned_new(GTK_ORIENTATION_HORIZONTAL);
     }
 
-  c =   Paned_setHandVisible(c,1);
+    gtk_paned_set_position (GTK_PANED(c->this), positionSeparateur);
+    c =   Paned_setHandVisible(c,1);
 
      return (Container *)c;
 }//fin de la fonction

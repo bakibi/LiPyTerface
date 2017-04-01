@@ -20,9 +20,9 @@ Taille  *Taille_cloner(Taille *t1);
 Container *new_Container();
 
 //      SD  :   Box
-Container *new_Box(int type,int espace);
-Container *Box_addFirst(Container *c,GtkWidget *w,int padding);
-Container *Box_addLast(Container *c,GtkWidget *w,int padding);
+Container *new_Box(int type, int espace, gboolean homogeneous);
+Container *Box_addFirst(Container *c,GtkWidget *w, gboolean expand, gboolean fill, int padding);
+Container *Box_addLast(Container *c,GtkWidget *w, gboolean expand, gboolean fill, int padding);
 
 
 //      SD  :   GRID
@@ -51,7 +51,7 @@ Container *Fixed_move(Container *c,GtkWidget *w,int x,int y);
 
 
 //      SD  :   Paned
-Container *new_Paned(int Orientation);
+Container *new_Paned(int Orientation,int positionSeparateur);
 Container *Paned_add1(Container *c,GtkWidget *w);
 Container *Paned_add2(Container *c,GtkWidget *w);
 Container *Paned_setHandPosition(Container *c, int position);

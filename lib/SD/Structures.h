@@ -13,6 +13,7 @@ typedef struct Taille
 */
 enum {BOX,GRID,LISTBOX,FLOWBOX,STACK,BUTTONBOX,EXPANDER,FIXED,NOTEBOOK,PANED,STACKSWITCHER,STACKSIDEBAR};
 enum {VERTICAL,HORIZENTAL};
+
 typedef struct Container
 {
     GtkWidget *this;            //  L'identifiant du Container
@@ -21,8 +22,6 @@ typedef struct Container
 }Container;
 
 //---------------------------------------
-
-
 
 /* 
     La Structure Fenetre :
