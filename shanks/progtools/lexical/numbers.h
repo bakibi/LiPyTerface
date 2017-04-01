@@ -1,12 +1,18 @@
 
-//      Prototypes
+//                                                                            Prototypes
 
 int if_null(void *var);
 int est_chiffre(char *c);
 int est_signe(char *c);
 int est_virgule(char *c);
+int est_operation(char *c);
 
-//          Implementation
+
+
+
+
+
+//                                                                          Implementation
 
 //      Cette fonction test un pointeur est  ce qu il est NULL ou pas et retourne 1 Si c Vrai
 int est_null(void *var)
@@ -52,5 +58,25 @@ int est_virgule(char *c)
         return -1;
     if(*c == '.')
         return 1;
+    return -1;
+}//end of the function
+
+
+//          Cette fonction verifie si un caractere est une operation et reourn sa valeur 
+//          sinon retourn -1
+int est_operation(char *c)
+{
+    if(est_null(c)) 
+        return -1;
+    if(*c == '+')
+        return 0;
+    if(*c == '-')
+        return 1;
+    if(*c == '/')
+        return 2;
+    if(*c == '*')
+        return 3;
+    if(*c == '%')
+        return 4;
     return -1;
 }//end of the function
