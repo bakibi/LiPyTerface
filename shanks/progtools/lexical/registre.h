@@ -14,7 +14,21 @@ enum Boucle {FOR,WHILE};
 enum Screen {PRINT,PRINTLN};
 
 
+//          Cellule struct
+typedef struct Cellule{
+    float value;
+    struct Cellule *svt;
+}Cellule;
 
+//          Liste struct 
+typedef struct Cellule Liste;
+//          Pile struct
+typedef struct Cellule Pile;
+//          File struct 
+typedef struct File {
+Cellule *debut;
+Cellule *fin;
+}File;
 
 //          Var : SD
 typedef struct variable
@@ -25,6 +39,9 @@ typedef struct variable
     float *complex_a_value,*complex_b_value;
     char *string_value;
     int *boolean_value;
+    Pile *pile_value;
+    File *file_value;
+    Liste liste_value;
 }variable;
 
 
