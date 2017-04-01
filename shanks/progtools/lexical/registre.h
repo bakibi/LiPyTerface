@@ -3,11 +3,13 @@
 
 
 //          All the kind of variables
-enum Var {WALOU,VAR,STRING,BOOLEAN,LIST,PILE,FILE};
+enum Var {WALOU,VAR,STRING,BOOLEAN,LIST,PILE,FIL};
 //          Operators
 enum Oper {PLUS,MOINS,DIV,MUL,MOD};
 //          Operator of condition
 enum Cond {IF,ELSEIF,ELSE,SWITCH,CASE};
+//          Compare 
+enum Comp {EGAL,DIFF,SUP,INF,SUPE,INFE};
 //          Operator of boucling 
 enum Boucle {FOR,WHILE};
 //      Printing
@@ -33,7 +35,8 @@ Cellule *fin;
 //          Var : SD
 typedef struct variable
 {
-    int type;
+    int ID;
+    enum Var type;
     int *int_value;
     float *float_value;
     float *complex_a_value,*complex_b_value;
@@ -49,5 +52,27 @@ typedef struct variable
 //          Oper : SD
 typedef struct operateur
 {
+    int ID;
+    enum Oper type;
+    variable *a;
+    variable *b;
+    variable *result;
+}operateur;
 
-}
+
+//          Compare : SD
+typedef struct compare
+{
+    int ID;
+    enum Comp type;
+    int value;
+}compare;
+
+//          Condition : SD
+typedef struct condition
+{
+    int ID;
+    enum Cond type;
+    int Value;
+}condition;
+    
