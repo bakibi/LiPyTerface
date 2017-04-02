@@ -58,3 +58,14 @@ typedef struct Component
    int type ;                               //  le type du composant
 } Component;
 //--------------------------------------------
+
+typedef struct Quick
+{
+    Fenetre *f;
+    Container *c;
+    Component *plus;
+    Component *option1;
+    Component *option2;
+    Component *option3;
+    gboolean show;
+}Quick;

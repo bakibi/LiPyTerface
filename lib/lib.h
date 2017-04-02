@@ -28,3 +28,4 @@
 #include "Components/Image.h"
 #include "Components/infoBar.h"
 #include "Components/statusBar.h"
+#include "Components/Button.h"

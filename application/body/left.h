@@ -4,6 +4,12 @@ GtkWidget* left_body()
     ALL_setBackgroundColor(left, 0.117, 0.117, 0.117, 1);
     ALL_setForegroundColor(left, 1, 1, 1, 1);
 
+    GtkWidget *titre = gtk_frame_get_label_widget(left);
+    gtk_widget_override_font(titre , pango_font_description_from_string("Bold 20"));
+    ALL_setForegroundColor(titre, 0, 0.6, 0.8, 1);
+
+    
+
     Container *flow     =   new_FlowBox();  
 
     GtkWidget *btn1     =   gtk_button_new_with_label("Fenetre");

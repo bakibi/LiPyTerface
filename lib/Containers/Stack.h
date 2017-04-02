@@ -90,4 +90,4 @@ Container *Stack_setVisibleChild(Container *c,GtkWidget *w)
 {
     gtk_stack_set_visible_child(GTK_STACK(c->this),w);
     return (Container *)c;
-}//fin de la fonction 
+}//fin de la fonction

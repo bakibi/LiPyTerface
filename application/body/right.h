@@ -4,6 +4,10 @@ GtkWidget* right_body()
     ALL_setBackgroundColor(right, 0.117, 0.117, 0.117, 1);
     ALL_setForegroundColor(right, 1, 1, 1, 1);
 
+    GtkWidget *titre = gtk_frame_get_label_widget(right);
+    gtk_widget_override_font(titre , pango_font_description_from_string("Bold 20"));
+    ALL_setForegroundColor(titre, 0, 0.6, 0.8, 1);
+
     Container *console_container =  new_Box(HORIZENTAL, 0, FALSE);
 
     GtkWidget *console = gtk_text_view_new();
