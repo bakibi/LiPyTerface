@@ -84,3 +84,13 @@ int est_operation(char *c)
 
 //          Cette fonction donne le resultat d une operation arithmetique 
 //          sinon Error Message
+float calcule(const char *str)
+{
+    float R = 0;
+    int taille =strlen(str);
+    int i=0;
+    //for ( i = 0; i < taille; i++)
+   printf("%d\n",taille); 
+   R = atof(str);
+    return R;
+}

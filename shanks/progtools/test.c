@@ -6,10 +6,12 @@
 #include "lexical/commande.h"
 int main(int argc,char **args)
 {
-    char mot[] = "0.15+-156";
+
+    char mot[] = "-0x13+x12";
 
     int i = 0;
-    for ( i = 0; i < 9; i++)
-        printf("%d\n",est_virgule(&mot[i]));
+   
+        printf("%f\n",calcule(mot));
+        
     return 0;
 }
