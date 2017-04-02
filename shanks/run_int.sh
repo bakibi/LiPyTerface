@@ -1,2 +1,2 @@
-gcc -o out1 progtools/test.c
+gcc -o out1 test.c
 ./out1
