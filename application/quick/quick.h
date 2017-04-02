@@ -1,35 +1,7 @@
 #include "transparentWindow.h"
 
-void quick_clicked(GtkWidget *widget, gpointer data) {
+void quick_clicked(GtkWidget *widget, gpointer data);
 
-  Quick *quick = data;
-
-  if(quick->show == FALSE)
-  {
-   
-    //    Showing the options
-    gtk_widget_set_opacity(quick->option1->this,1);
-    gtk_widget_set_opacity(quick->option2->this,1);
-    gtk_widget_set_opacity(quick->option3->this,1);
-    //    renaming the plus button and then adding it
-    gtk_button_set_label(GTK_BUTTON(quick->plus->this),"MOINS (-)");
-
-    quick->show = TRUE;
-  }
-  else
-  {
-    //  hiding the options
-    gtk_widget_set_opacity(quick->option1->this,0);
-    gtk_widget_set_opacity(quick->option2->this,0);
-    gtk_widget_set_opacity(quick->option3->this,0);
-    //    renaming the plus button and then adding it
-    gtk_button_set_label(GTK_BUTTON(quick->plus->this),"PLUS (+)");
-
-    quick->show = FALSE;
-  }
-  
-  g_print("clicked\n");
-}
 
 Fenetre* quick_constructor()
 {
@@ -70,3 +42,31 @@ Fenetre* quick_constructor()
     return (quick->f);
 }
 
+void quick_clicked(GtkWidget *widget, gpointer data) {
+
+  Quick *quick = data;
+
+  if(quick->show == FALSE)
+  {
+   
+    //    Showing the options
+    gtk_widget_set_opacity(quick->option1->this,1);
+    gtk_widget_set_opacity(quick->option2->this,1);
+    gtk_widget_set_opacity(quick->option3->this,1);
+    //    renaming the plus button and then adding it
+    gtk_button_set_label(GTK_BUTTON(quick->plus->this),"MOINS (-)");
+
+    quick->show = TRUE;
+  }
+  else
+  {
+    //  hiding the options
+    gtk_widget_set_opacity(quick->option1->this,0);
+    gtk_widget_set_opacity(quick->option2->this,0);
+    gtk_widget_set_opacity(quick->option3->this,0);
+    //    renaming the plus button and then adding it
+    gtk_button_set_label(GTK_BUTTON(quick->plus->this),"PLUS (+)");
+
+    quick->show = FALSE;
+  }
+}

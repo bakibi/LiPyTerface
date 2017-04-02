@@ -12,16 +12,29 @@ GtkWidget* right_body()
 
     GtkWidget *console = gtk_text_view_new();
     ALL_setBackgroundColor(console, 0.117, 0.117, 0.117, 1);
-    ALL_setForegroundColor(console, 0, 1, 0, 1);
+    ALL_setForegroundColor(console, 1, 1, 1, 1);
 
-    GtkTextBuffer *buffer = gtk_text_buffer_new(NULL);
+    GtkTextBuffer *buffer = gtk_text_view_get_buffer(GTK_TEXT_VIEW(console));
+    GtkTextIter iter;
 
-    gtk_text_view_set_buffer(console,buffer);
-    gtk_text_buffer_set_text(GTK_TEXT_BUFFER(buffer),"> This is my first Command !\n>",-1);
-    gtk_text_view_set_editable(GTK_TEXT_VIEW(console),FALSE);
+    //  START TEST
+
+    gtk_text_buffer_create_tag(buffer, "blue_fg","foreground", "blue", NULL);
+    gtk_text_buffer_create_tag(buffer, "green_fg","foreground", "green", NULL);
+    gtk_text_buffer_create_tag(buffer, "red_fg","foreground", "red", NULL);
+
+    gtk_text_buffer_get_iter_at_offset(buffer, &iter, 0);
+ 
+    gtk_text_buffer_insert_with_tags_by_name(buffer, &iter, "\n>", -1, "red_fg", NULL);
+    gtk_text_buffer_insert_with_tags_by_name(buffer, &iter, " // Ceci est un commentaire", -1, "green_fg", NULL);
+    gtk_text_buffer_insert_with_tags_by_name(buffer, &iter, "\n>", -1, "red_fg", NULL);
+    gtk_text_buffer_insert_with_tags_by_name(buffer, &iter, " int ", -1, "blue_fg", NULL);
+    gtk_text_buffer_insert(buffer, &iter, "x = 0 ;", -1);
+    gtk_text_buffer_insert_with_tags_by_name(buffer, &iter, "\n>", -1, "red_fg", NULL);
+    
+    //  END TEST
 
     console_container = Box_addFirst(console_container,console,TRUE,TRUE,0);
-
     gtk_container_add( GTK_CONTAINER(right) ,GTK_WIDGET(console_container->this) );
 
     //  setting some spacing
