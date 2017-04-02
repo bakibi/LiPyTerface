@@ -6,7 +6,7 @@ int est_chiffre(char *c);
 int est_signe(char *c);
 int est_virgule(char *c);
 int est_operation(char *c);
-
+float calcule(const char *str);
 
 
 
@@ -80,3 +80,7 @@ int est_operation(char *c)
         return 4;
     return -1;
 }//end of the function
+
+
+//          Cette fonction donne le resultat d une operation arithmetique 
+//          sinon Error Message
