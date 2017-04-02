@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "lexical/registre.h"
-#include "lexical/numbers.h"
-#include "lexical/commande.h"
+#include "progtools/lexical/registre.h"
+#include "progtools/lexical/numbers.h"
+#include "commons/commande.h"
 int main(int argc,char **args)
 {
 
