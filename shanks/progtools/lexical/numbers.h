@@ -90,7 +90,6 @@ float calcule(const char *str)
     int taille =strlen(str);
     int i=0;
     //for ( i = 0; i < taille; i++)
-   printf("%d\n",taille); 
-   R = atof(str);
+  
     return R;
 }

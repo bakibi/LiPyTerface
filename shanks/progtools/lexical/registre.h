@@ -16,27 +16,6 @@ enum Boucle {FOR,WHILE};
 enum Screen {PRINT,PRINTLN};
 
 
-//          Cellule struct
-typedef struct Cellule{
-    float value;
-    struct Cellule *svt;
-}Cellule;
-
-//          Liste struct 
-typedef struct Cellule Liste;
-//          Pile struct
-typedef struct Cellule Pile;
-//          File struct 
-typedef struct File {
-Cellule *debut;
-Cellule *fin;
-}File;
-//          Arbre struct
-typedef struct Arbre 
-{
-    float value;
-    struct Arbre *fg,*fd;
-}Arbre ;
 //          Var : SD
 typedef struct variable
 {
