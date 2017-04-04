@@ -110,7 +110,16 @@ Arbre *Arbre_add(Arbre *a,char type,float value,char op)
             //si le noeud contient une operation alors la il faut tester
             //les priorite
             int cp = compare_priority(a->op,op);
-
+            if(cp==0)
+            {
+                 Arbre *a1 = Arbre_load(type,value,op);
+                a1->fg = a;
+                return (Arbre *)a;
+            }//si ils ont la mm opreartion
+            if(cp==1)
+            {
+                
+            }//si l'operation du debut est sup a la 2ieme'
     }
     
     return (Arbre *)a;

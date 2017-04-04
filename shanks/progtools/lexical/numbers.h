@@ -86,10 +86,28 @@ int est_operation(char *c)
 //          sinon Error Message
 float calcule(const char *str)
 {
+                      
+    int etat_nbr = 0;
+                     // 0 debut
+                     // 1 entier est entrer
+                     // 2 virgule est entrer
+                     // 3 dicimal est entrer
+                     // -1 erreur 
+                     // -2 after error
+    int etat_op = 0;
+                    //  0 debut
+                    //  1                      
     float R = 0;
+    float total = 0,p_entier = 0,p_virgule = 0;
     int taille =strlen(str);
-    int i=0;
-    //for ( i = 0; i < taille; i++)
+    for (int i = 0; i < taille; i++)
+    {
+        if( est_chiffre(str[i]) == 1)
+            {
+
+            }
+
+    }
   
     return R;
 }
