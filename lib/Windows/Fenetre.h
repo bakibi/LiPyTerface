@@ -36,8 +36,7 @@ Fenetre *new_Fenetre(const char *titre,int type,Taille *t,int position)
     else 
         f->this = gtk_window_new(GTK_WINDOW_POPUP);
         
-    
-    Container *c = new_Box(HORIZENTAL,0,FALSE);
+    Container *c = new_Box(VERTICAL,0,FALSE);
     f = Fenetre_setContainer(f,c);
     f = Fenetre_setTaille(f,t);
     f = Fenetre_setTitre(f,titre);
@@ -101,29 +100,6 @@ void Fenetre_setIcon(Fenetre *f,const char *filepath,const char *name)
 }//fin de la fonction
 
 
- void ALL_setForegroundColor(GtkWidget *f,float red,float green,float blue,float opacity)
-{
-    GdkRGBA color;
-    color.red = red;
-    color.green = green;
-    color.blue = blue;
-    color.alpha = opacity;
-    gtk_widget_override_color(f, GTK_STATE_NORMAL, &color);
-
-    return ;
-}//fin de la f
-
-void ALL_setBackgroundColor(GtkWidget *f,float red,float green,float blue,float opacity)
-{
-
-    GdkRGBA color;
-    color.red = red;
-    color.green = green;
-    color.blue = blue;
-    color.alpha = opacity;
-    gtk_widget_override_background_color(f, GTK_STATE_NORMAL, &color);
-    return ;
-}
 
 
 //          Fonction qui fait le lien entre le window et le fichier

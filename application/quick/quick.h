@@ -2,7 +2,6 @@
 
 void quick_clicked(GtkWidget *widget, gpointer data);
 
-
 Fenetre* quick_constructor()
 {
     Quick *quick = (Quick*)malloc(sizeof(Quick));
@@ -10,11 +9,7 @@ Fenetre* quick_constructor()
     quick->f = new_transparent_fenetre();
     gtk_window_set_keep_above(GTK_WINDOW(quick->f->this), TRUE);
     gtk_window_move (GTK_WINDOW(quick->f->this), 1220, 580);
-    //  initation Container
-    quick->c = new_Box(VERTICAL,0, FALSE);
-    quick->f = Fenetre_setContainer(quick->f,quick->c);
-
-    //  initation bouton add
+    //  initation bouton plus
     quick->plus = new_Button("PLUS (+)");
     //Component *btn = new_Button_image("add.png");
     
@@ -26,11 +21,11 @@ Fenetre* quick_constructor()
     quick->show = FALSE;
 
     //  adding the plus botton to the box
-    Box_addLast(quick->c, quick->plus->this, FALSE, FALSE, 0);
+    Box_addLast(quick->f->container, quick->plus->this, FALSE, FALSE, 0);
     //    adding the options to the box
-    Box_addFirst(quick->c, quick->option1->this, FALSE, FALSE, 0);
-    Box_addFirst(quick->c, quick->option2->this, FALSE, FALSE, 0);
-    Box_addFirst(quick->c, quick->option3->this, FALSE, FALSE, 0);
+    Box_addFirst(quick->f->container, quick->option1->this, FALSE, FALSE, 0);
+    Box_addFirst(quick->f->container, quick->option2->this, FALSE, FALSE, 0);
+    Box_addFirst(quick->f->container, quick->option3->this, FALSE, FALSE, 0);
     //  hiding the options
     gtk_widget_set_opacity(quick->option1->this,0);
     gtk_widget_set_opacity(quick->option2->this,0);
@@ -48,7 +43,6 @@ void quick_clicked(GtkWidget *widget, gpointer data) {
 
   if(quick->show == FALSE)
   {
-   
     //    Showing the options
     gtk_widget_set_opacity(quick->option1->this,1);
     gtk_widget_set_opacity(quick->option2->this,1);

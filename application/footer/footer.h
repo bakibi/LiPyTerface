@@ -1,21 +1,15 @@
-Container* footer_constructor()
+Container* footer_constructor(Component *lnCol)
 {
-
     Container *footer = new_Box(HORIZENTAL, 0, FALSE);
-    ALL_setBackgroundColor(footer->this,0 , 0.478, 0.8, 1);
-    ALL_setForegroundColor(footer->this,0.8, 0.8, 0.8, 1);
+    cssDataToWidget(footer->this, "color:#CCC;background-color:#007ACC;font:Bold 10px");
     
     Component *mode = new_StatusBar();
     mode = StatusBar_empilerMSG(mode,"Mode Interpreteur",1);
-    gtk_widget_override_font(GTK_WIDGET(mode->this) ,pango_font_description_from_string("Bold 10"));
 
     Component *fileName = new_StatusBar();
     fileName = StatusBar_empilerMSG(fileName,"Current File Name",2);
-    gtk_widget_override_font(GTK_WIDGET(fileName->this) ,pango_font_description_from_string("Bold 10"));
-
-    Component *lnCol = new_StatusBar();
-    lnCol = StatusBar_empilerMSG(lnCol,"Ln 70 / Col 32",3);
-    gtk_widget_override_font(GTK_WIDGET(lnCol->this) ,pango_font_description_from_string("Bold 10"));
+    
+    lnCol = StatusBar_empilerMSG(lnCol,"Ln 0 | Col 0",3);
 
     Box_addFirst(footer, mode->this    , TRUE, FALSE, 0);
     Box_addFirst(footer, fileName->this , TRUE, FALSE, 0);

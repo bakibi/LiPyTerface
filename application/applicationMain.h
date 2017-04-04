@@ -8,8 +8,11 @@
 
 void ApplicationMain()
 {
-    Fenetre *f = new_Fenetre("ma premiere fenetre",NORMAL,new_Taille(500,500),P_CENTER);
-    ALL_setBackgroundColor(f->this, 0.145, 0.145, 0.152, 1);
+    //  DECLARING SOME WIDGETS
+    Component *lnCol = new_StatusBar();
+
+    Fenetre *f = new_Fenetre("LyPyTerface",NORMAL,new_Taille(500,500),P_CENTER);
+    cssDataToWidget(f->this,"background-color:#3F3F46");
     Fenetre_agrandir(f);
 
     Container *vBox= new_Box(VERTICAL,0, FALSE);
@@ -18,9 +21,9 @@ void ApplicationMain()
     //  Header
     GtkWidget *header = header_constructor();
     //  body
-    Container *body = body_constructor();
+    Container *body = body_constructor(lnCol);
     //  Footer
-    Container *footer = footer_constructor();
+    Container *footer = footer_constructor(lnCol);
 
     //  quick
     Fenetre *quick = quick_constructor();

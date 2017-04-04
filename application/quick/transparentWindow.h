@@ -4,7 +4,7 @@ static void clicked(GtkWindow *win, GdkEventButton *event, gpointer user_data);
 
 Fenetre* new_transparent_fenetre()
 {
-    Fenetre *trans = new_Fenetre("Tran",NORMAL,new_Taille(100,100),P_NONE);
+    Fenetre *trans = new_Fenetre("",NORMAL,new_Taille(100,100),P_NONE);
     gtk_window_set_decorated(GTK_WINDOW(trans->this),FALSE);
 
     gtk_widget_set_app_paintable(trans->this, TRUE);

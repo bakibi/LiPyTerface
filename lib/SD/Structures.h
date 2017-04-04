@@ -62,7 +62,6 @@ typedef struct Component
 typedef struct Quick
 {
     Fenetre *f;
-    Container *c;
     Component *plus;
     Component *option1;
     Component *option2;
