@@ -2,6 +2,13 @@
 
 ## put your application code in the file "applicationMain.h" 
 
+--> calculateur (en cours)
+--> analyseur lexical (en cours)
+--> analyseur syntaxique (arret)
+--> analyseur semantique (arret)
+
+--> analyseur d'interfaçage (arret)
+--> macro 80%
 
 
 
