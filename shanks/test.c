@@ -8,7 +8,8 @@ int main(int argc,char **args)
 
     int i = 0;
    
-        printf("%f\n",calcule(mot));
-        
+   //     printf("%f\n",calcule(mot));
+        Arbre *a = new_Arbre();
+        a = arbre
     return 0;
 }

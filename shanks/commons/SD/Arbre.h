@@ -7,6 +7,7 @@ Arbre *Arbre_load(char type,float value,char op);
 int is_in(char t[],int n,char c);
 int compare_priority(char op,char op1);
 Arbre *Arbre_add(Arbre *a,char type,float value,char op);
+void Arbre_toString(Arbre *a);
 
 
 //                              Fonctions
@@ -115,12 +116,44 @@ Arbre *Arbre_add(Arbre *a,char type,float value,char op)
                  Arbre *a1 = Arbre_load(type,value,op);
                 a1->fg = a;
                 return (Arbre *)a;
-            }//si ils ont la mm opreartion
+            }//si ils ont la mm opreartio an
             if(cp==1)
             {
-                
+                 Arbre *a1 = Arbre_load(type,value,op);
+                 a1->fg = a;
+                 return (Arbre *)a;
             }//si l'operation du debut est sup a la 2ieme'
+            if(cp == -1)
+            {
+                 Arbre *a1 = Arbre_load(type,value,op);
+                 a1->fg = a->fd;
+                 a->fd = a1;
+                 return (Arbre *)a;
+            }//si l'operation du debut est inf a la 2ieme '
+
+            
+
+    }//si on veut inserer une operation
+    else//si on veut inserer un nombre float
+    {
+         a->fd =    Arbre_add(a->fd,type,value,op);
     }
     
     return (Arbre *)a;
 }//end of function
+
+
+//Cette fonction affiche le contenu d'une fenetre on prefixant
+void Arbre_toString(Arbre *a)
+{
+    if(a == NULL)
+        return ;
+        Arbre_toString(a->fg);
+    if(a->op == 0)
+        printf("%d\t",a->v);
+    else
+        printf("%c\t",a->op);
+
+    Arbre_toString(a->fd);
+    return;         
+}//end of the function
