@@ -10,6 +10,15 @@ int main(int argc,char **args)
    
    //     printf("%f\n",calcule(mot));
         Arbre *a = new_Arbre();
-        a = arbre
+        a = Arbre_add(a,2,10,0);
+        a = Arbre_add(a,1,0,'+');
+        a = Arbre_add(a,2,10,0);
+        a = Arbre_add(a,1,0,'%');
+        a = Arbre_add(a,2,30,0);
+
+        Arbre_toString(a);
+        printf("\n");
+
+        printf("%f\n",Arbre_evaluer(a));
     return 0;
 }

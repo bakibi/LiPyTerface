@@ -102,11 +102,7 @@ float calcule(const char *str)
     int taille =strlen(str);
     for (int i = 0; i < taille; i++)
     {
-        if( est_chiffre(str[i]) == 1)
-            {
-
-            }
-
+      
     }
   
     return R;

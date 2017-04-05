@@ -8,6 +8,7 @@ int is_in(char t[],int n,char c);
 int compare_priority(char op,char op1);
 Arbre *Arbre_add(Arbre *a,char type,float value,char op);
 void Arbre_toString(Arbre *a);
+float Arbre_evaluer(Arbre *a);
 
 
 //                              Fonctions
@@ -104,7 +105,7 @@ Arbre *Arbre_add(Arbre *a,char type,float value,char op)
             {
                 Arbre *a1 = Arbre_load(type,value,op);
                 a1->fg = a;
-                return (Arbre *)a;
+                return (Arbre *)a1;
 
             }
 
@@ -115,13 +116,13 @@ Arbre *Arbre_add(Arbre *a,char type,float value,char op)
             {
                  Arbre *a1 = Arbre_load(type,value,op);
                 a1->fg = a;
-                return (Arbre *)a;
+                return (Arbre *)a1;
             }//si ils ont la mm opreartio an
             if(cp==1)
             {
                  Arbre *a1 = Arbre_load(type,value,op);
                  a1->fg = a;
-                 return (Arbre *)a;
+                 return (Arbre *)a1;
             }//si l'operation du debut est sup a la 2ieme'
             if(cp == -1)
             {
@@ -150,10 +151,42 @@ void Arbre_toString(Arbre *a)
         return ;
         Arbre_toString(a->fg);
     if(a->op == 0)
-        printf("%d\t",a->v);
+        printf("%f\t",a->v);
     else
         printf("%c\t",a->op);
 
     Arbre_toString(a->fd);
     return;         
 }//end of the function
+
+
+//this function give a result of the arithmztic equation
+float Arbre_evaluer(Arbre *a)
+{
+    if(a==NULL)
+         return 0;
+
+    if (a->op == 0)
+        return a->v;
+
+     if(a->op == '+')
+     {
+        return Arbre_evaluer(a->fg) + Arbre_evaluer(a->fd);
+     }   
+     if(a->op == '-')
+     {
+         return Arbre_evaluer(a->fg) - Arbre_evaluer(a->fd);
+     }   
+      if(a->op == '*')
+     {
+         return Arbre_evaluer(a->fg) * Arbre_evaluer(a->fd);
+     }   
+          if(a->op == '/')
+     {
+         return Arbre_evaluer(a->fg) / Arbre_evaluer(a->fd);
+     }   
+          if(a->op == '%')
+     {
+         return (int)Arbre_evaluer(a->fg)%(int)Arbre_evaluer(a->fd);
+     }   
+}
