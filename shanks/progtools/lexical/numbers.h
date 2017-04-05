@@ -6,7 +6,7 @@ int est_chiffre(char *c);
 int est_signe(char *c);
 int est_virgule(char *c);
 int est_operation(char *c);
-float calcule(const char *str);
+float calcule(char str[]);
 
 
 
@@ -84,7 +84,7 @@ int est_operation(char *c)
 
 //          Cette fonction donne le resultat d une operation arithmetique 
 //          sinon Error Message
-float calcule(const char *str)
+float calcule(char str[])
 {
                       
     int etat_nbr = 0;
@@ -102,7 +102,15 @@ float calcule(const char *str)
     int taille =strlen(str);
     for (int i = 0; i < taille; i++)
     {
-      
+        if(est_chiffre(&str[i]) != -1)
+        {
+            
+        }
+         else
+         {
+             printf("Erreur dans le calcule arithmetique \n");
+             return -1;
+         }   
     }
   
     return R;
