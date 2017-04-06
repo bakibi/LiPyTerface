@@ -121,7 +121,7 @@ float calcule(char str[])
             {
                 int  cc = (int) (str[i] - '0');
                 nb_pl++;
-                p_virgule +=  (int) pow(10,-nb_pl) ;
+                p_virgule +=  (int) pow(10,-nb_pl)  * cc;
             }//apres virgule
         }//fin cas si un chiffre
          else if(est_signe(&str[i]) != -1)
@@ -130,7 +130,23 @@ float calcule(char str[])
             {
                 if(str[i] == '+') p_signe = 1;
                 else p_signe = -1;
+                
             }//si on vient de sasir le signe
+
+            if(est_chiffre(&str[i-1]) != -1)
+            {
+                 float res = p_signe*(p_entier + p_virgule);
+                a = Arbre_add(a,2,res,0);
+                a = Arbre_add(a,1,0,str[i]);
+
+                  //renitialisation des donnees et parametres
+                 p_signe = 1;
+                p_entier = p_virgule = 0;
+                av = 0;
+                etat_nbr = etat_op = 0;
+            }
+
+            
         }//fin cas si une signe
         else if(est_operation(&str[i]) != -1)
         {
@@ -155,6 +171,9 @@ float calcule(char str[])
              return -1;
          }//fin cas sinon  
     }//fin boulce for
+
+     float res = p_signe*(p_entier + p_virgule);
+              a = Arbre_add(a,2,res,0);
    R = Arbre_evaluer(a);
     return R;//return le Resultat si tout ça passe bien
 }

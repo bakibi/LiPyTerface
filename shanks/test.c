@@ -6,14 +6,12 @@ int main(int argc,char **args)
 
 
 
-    char mot[] = "10+10";
 
-    int i = 0;
-   
+    commande *cmd1 = new_commande("10.002");   
  
      
         printf("\n");
 
-        printf("%f\n",calcule(mot));
+        printf("%f\n",calcule(cmd1->com));
     return 0;
 }
