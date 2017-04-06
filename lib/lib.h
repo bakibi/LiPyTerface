@@ -5,7 +5,9 @@
 
 //Include compososant
 
+//  CSS
 #include "css/cssFunctions.h"
+#include "css/animations.h"
 
 
 // all the Containers
@@ -31,3 +33,7 @@
 #include "Components/infoBar.h"
 #include "Components/statusBar.h"
 #include "Components/Button.h"
+
+//  CallBacks
+
+#include "CallBacks/quickCallBacks.h"

@@ -62,9 +62,28 @@ typedef struct Component
 typedef struct Quick
 {
     Fenetre *f;
-    Component *plus;
-    Component *option1;
-    Component *option2;
-    Component *option3;
-    gboolean show;
+    Component *show;
+    Component *mode;
+    Component *theme;
+    Component *quit;
+    gboolean isShown;
+    
 }Quick;
+
+typedef struct All
+{
+    Fenetre *f;
+    gboolean isDark;
+    
+    //body
+    Container *paned;
+        //left
+        GtkWidget *leftFrame,*leftTitre;
+        //right
+        GtkWidget *rightFrame,*rightTitre,*console;
+    //footer
+        Container *footer;
+        Component *mode, *fileName, *lnCol;
+    //quick
+    Quick *quick;
+}All;

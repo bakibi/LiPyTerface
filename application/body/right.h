@@ -22,22 +22,35 @@ void update_lnCol(GtkTextBuffer *buffer,
 
 void mark_set_callback(GtkTextBuffer *buffer, 
     const GtkTextIter *new_location, GtkTextMark *mark, gpointer data) {
+
+    GtkTextIter iter;
+
+    gtk_text_buffer_get_iter_at_mark(buffer, &iter, gtk_text_buffer_get_insert(buffer));
+
+    if(! gtk_text_iter_is_end (&iter)) 
+    {
+        gtk_text_iter_forward_cursor_positions (&iter,100); 
+    }
+            
                        
-  update_lnCol(buffer, GTK_STATUSBAR(data));
+    update_lnCol(buffer, GTK_STATUSBAR(data));
 }
 
-GtkWidget* right_body(Component *lnCol)
+GtkWidget* right_body(All *all)
 {
     GtkWidget *right = gtk_frame_new("  Console  ");
+    all->rightFrame=right;
     cssDataToWidget(right, "color : #23D18B;background-color: #1E1E1D");
 
     GtkWidget *titre = gtk_frame_get_label_widget(GTK_FRAME(right));
+    all->rightTitre=titre;
     cssDataToWidget(titre, "color : #23D18B;font:Bold 30px");
     
     Container *console_container =  new_Box(HORIZENTAL, 0, FALSE);
 
     GtkWidget *console = gtk_text_view_new();
-    cssDataToWidget(console, "color : #DDDDDD;background-color: #1E1E1D");
+    all->console=console;
+    cssDataToWidget(console, "color : #DDDDDD;background-color: #1E1E1D;");
 
     GtkTextBuffer *buffer = gtk_text_view_get_buffer(GTK_TEXT_VIEW(console));
     gtk_text_view_set_wrap_mode(GTK_TEXT_VIEW(console), GTK_WRAP_WORD);
@@ -60,6 +73,9 @@ GtkWidget* right_body(Component *lnCol)
     gtk_text_buffer_insert(buffer, &iter, "x = 0 ;", -1);
     gtk_text_buffer_insert_with_tags_by_name(buffer, &iter, "\n>", -1, "red_fg", NULL);
     
+   
+    gtk_text_buffer_set_modified (buffer,TRUE);
+
     //  END TEST
 
     console_container = Box_addFirst(console_container,console,TRUE,TRUE,0);
@@ -72,10 +88,10 @@ GtkWidget* right_body(Component *lnCol)
 
     //  SIGNALS
     g_signal_connect(buffer, "changed",
-        G_CALLBACK(update_lnCol), lnCol->this);
+        G_CALLBACK(update_lnCol), all->lnCol->this);
 
   g_signal_connect_object(buffer, "mark_set", 
-        G_CALLBACK(mark_set_callback), lnCol->this, 0);
+        G_CALLBACK(mark_set_callback), all->lnCol->this, 0);
 
     return(right);
 }

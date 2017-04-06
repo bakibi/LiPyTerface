@@ -1,13 +1,17 @@
-Container* footer_constructor(Component *lnCol)
+Container* footer_constructor(All *all)
 {
-    Container *footer = new_Box(HORIZENTAL, 0, FALSE);
+    Component *lnCol = all->lnCol;
+
+    Container *footer = all->footer;
     cssDataToWidget(footer->this, "color:#CCC;background-color:#007ACC;font:Bold 10px");
     
     Component *mode = new_StatusBar();
     mode = StatusBar_empilerMSG(mode,"Mode Interpreteur",1);
+    all->mode=mode;
 
     Component *fileName = new_StatusBar();
     fileName = StatusBar_empilerMSG(fileName,"Current File Name",2);
+    all->fileName=fileName;
     
     lnCol = StatusBar_empilerMSG(lnCol,"Ln 0 | Col 0",3);
 
