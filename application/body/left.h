@@ -1,35 +1,32 @@
-GtkWidget* left_body()
+GtkWidget* left_body(All *all)
 {
     GtkWidget *left = gtk_frame_new("  Interface  ");
+    all->leftFrame=left;
     cssDataToWidget(left, "color : #23D18B;background-color: #252526");
 
     GtkWidget *titre = gtk_frame_get_label_widget(GTK_FRAME(left));
+    all->leftTitre=titre;
     cssDataToWidget(titre, "color : #23D18B;font:Bold 30px");
-
-
+    
     Container *flow     =   new_FlowBox();  
+    cssDataToWidget(flow->this,"background-color:#FFF;");
 
-    GtkWidget *btn1     =   gtk_button_new_with_label("Fenetre");
-    GtkWidget *btn2     =   gtk_button_new_with_label("Bouton");
-    GtkWidget *btn3     =   gtk_button_new_with_label("Label");
-    GtkWidget *btn4     =   gtk_button_new_with_label("Container");
-    GtkWidget *btn5     =   gtk_button_new_with_label("Entry");
-    GtkWidget *btn6     =   gtk_button_new_with_label("Fenetre");
-    GtkWidget *btn7     =   gtk_button_new_with_label("Bouton");
-    GtkWidget *btn8     =   gtk_button_new_with_label("Label");
-    GtkWidget *btn9     =   gtk_button_new_with_label("Container");
-    GtkWidget *btn10    =   gtk_button_new_with_label("Entry");
+    Component *iterface_fenetre = new_Button_image("interface/fenetre.jpg");
+    cssDataToWidget(iterface_fenetre->this, "background-color:rgba(0,0,0,0);border: 0px");
+    Component *iterface_bouton = new_Button_image("interface/bouton.jpg");
+    cssDataToWidget(iterface_bouton->this, "background-color:rgba(0,0,0,0);border: 0px");
+    Component *iterface_input = new_Button_image("interface/input.png");
+    cssDataToWidget(iterface_input->this, "background-color:rgba(0,0,0,0);border: 0px");
+    Component *iterface_label = new_Button_image("interface/label.png");
+    cssDataToWidget(iterface_label->this, "background-color:rgba(0,0,0,0);border: 0px");
+    Component *iterface_textview = new_Button_image("interface/textview.png");
+    cssDataToWidget(iterface_textview->this, "background-color:rgba(0,0,0,0);border: 0px");
 
-    FlowBox_add(flow,btn1,-1);
-    FlowBox_add(flow,btn2,-1);
-    FlowBox_add(flow,btn3,-1);
-    FlowBox_add(flow,btn4,-1);
-    FlowBox_add(flow,btn5,-1);
-    FlowBox_add(flow,btn6,-1);
-    FlowBox_add(flow,btn7,-1);
-    FlowBox_add(flow,btn8,-1);
-    FlowBox_add(flow,btn9,-1);
-    FlowBox_add(flow,btn10,-1);
+    FlowBox_add(flow,iterface_fenetre->this,-1);
+    FlowBox_add(flow,iterface_bouton->this,-1);
+    FlowBox_add(flow,iterface_input->this,-1);
+    FlowBox_add(flow,iterface_label->this,-1);
+    FlowBox_add(flow,iterface_textview->this,-1);
 
     gtk_container_add( GTK_CONTAINER(left) , flow->this );
 

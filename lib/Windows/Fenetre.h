@@ -91,10 +91,10 @@ Fenetre *Fenetre_destroy(Fenetre *f)
  *	Sortie	:	void														*
  ****************************************************************************/
 
-void Fenetre_setIcon(Fenetre *f,const char *filepath,const char *name)
+void Fenetre_setIcon(Fenetre *f,const char *file,const char *name)
 {
-    
-   GdkPixbuf *g = gdk_pixbuf_new_from_file(filepath,NULL);
+    const gchar *filepath = g_strconcat( "/home/ultimate/Workspace/Gtk/LiPyTerface/img/", file, NULL);
+    GdkPixbuf *g = gdk_pixbuf_new_from_file(filepath,NULL);
     gtk_window_set_icon (GTK_WINDOW(f->this),g);
     //gtk_window_set_default_icon_name (name);
 }//fin de la fonction
