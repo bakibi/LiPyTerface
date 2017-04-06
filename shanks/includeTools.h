@@ -1,12 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <math.h>
 
 //          Cellule struct
 typedef struct Cellule{
     float value;
     struct Cellule *svt;
-}Cellule;
+}Cellule; 
 
 //          Liste struct 
 typedef struct Cellule Liste;

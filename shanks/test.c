@@ -4,7 +4,9 @@
 int main(int argc,char **args)
 {
 
-    char mot[] = "10+5x";
+
+
+    char mot[] = "10+10";
 
     int i = 0;
    
