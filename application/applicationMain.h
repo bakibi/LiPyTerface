@@ -8,12 +8,18 @@
 
 void ApplicationMain()
 {
-    //  DECLARING SOME WIDGETS , because of SEGMENTAION FAULT
+    //  DECLARING SOME WIDGETS , because of SEGMENTAION FAULT and adding them to ALL
     All *all=(All*)malloc(sizeof(All));
+
+    all->isDark=TRUE;
+    all->isBash=FALSE;
+
     all->footer = new_Box(HORIZENTAL, 0, FALSE);
     all->lnCol = new_StatusBar();
 
+    //  Notre fenetre
     Fenetre *f = new_Fenetre("LyPyTerface",NORMAL,new_Taille(500,500),P_CENTER);
+    all->f=f;
     cssDataToWidget(f->this,"background-color:#3F3F46");
     Fenetre_agrandir(f);
     Fenetre_setIcon(f,"logo.png","logo");
@@ -40,7 +46,6 @@ void ApplicationMain()
     Fenetre_setVisible(f,1);
     Fenetre_setVisible(quick,1);
 
-    //  Atribuer les Composant à All
-    all->isDark=TRUE;
-    all->f=f;
+    
+    
 }//end of Function

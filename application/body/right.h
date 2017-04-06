@@ -23,17 +23,17 @@ void update_lnCol(GtkTextBuffer *buffer,
 void mark_set_callback(GtkTextBuffer *buffer, 
     const GtkTextIter *new_location, GtkTextMark *mark, gpointer data) {
 
+    All *all=data;
     GtkTextIter iter;
 
     gtk_text_buffer_get_iter_at_mark(buffer, &iter, gtk_text_buffer_get_insert(buffer));
 
     if(! gtk_text_iter_is_end (&iter)) 
-    {
-        gtk_text_iter_forward_cursor_positions (&iter,100); 
-    }
-            
+        gtk_text_view_set_editable (GTK_TEXT_VIEW(all->console),FALSE);
+    else
+        gtk_text_view_set_editable (GTK_TEXT_VIEW(all->console),TRUE);
                        
-    update_lnCol(buffer, GTK_STATUSBAR(data));
+    update_lnCol(buffer, GTK_STATUSBAR(all->lnCol->this));
 }
 
 GtkWidget* right_body(All *all)
@@ -78,6 +78,8 @@ GtkWidget* right_body(All *all)
 
     //  END TEST
 
+    gtk_text_iter_forward_cursor_positions (&iter,4); 
+
     console_container = Box_addFirst(console_container,console,TRUE,TRUE,0);
     gtk_container_add( GTK_CONTAINER(right) ,GTK_WIDGET(console_container->this) );
 
@@ -90,8 +92,8 @@ GtkWidget* right_body(All *all)
     g_signal_connect(buffer, "changed",
         G_CALLBACK(update_lnCol), all->lnCol->this);
 
-  g_signal_connect_object(buffer, "mark_set", 
-        G_CALLBACK(mark_set_callback), all->lnCol->this, 0);
+  g_signal_connect(buffer, "mark_set", 
+        G_CALLBACK(mark_set_callback), all);
 
     return(right);
 }

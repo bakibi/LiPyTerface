@@ -51,6 +51,9 @@ Fenetre* quick_constructor(All *all)
     //  Bouton theme permet de changer de theme
      g_signal_connect(G_OBJECT(quick->theme->this), "clicked", 
       G_CALLBACK(theme_clicked), all);
+      //  Bouton mode permet de changer de mode
+     g_signal_connect(G_OBJECT(quick->mode->this), "clicked", 
+      G_CALLBACK(mode_clicked), all);
 
     return (quick->f);
 }

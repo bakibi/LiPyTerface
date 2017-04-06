@@ -4,11 +4,14 @@
 int main(int argc,char **args)
 {
 
-    char mot[] = "-0x13+x12";
 
-    int i = 0;
-   
-        printf("%f\n",calcule(mot));
-        
+
+
+    commande *cmd1 = new_commande("10.002");   
+ 
+     
+        printf("\n");
+
+        printf("%f\n",calcule(cmd1->com));
     return 0;
 }

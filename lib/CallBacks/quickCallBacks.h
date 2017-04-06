@@ -43,6 +43,7 @@ void theme_clicked(GtkWidget *widget, gpointer data) {
     cssDataToWidget(all->footer->this, "color : #222;background-color: #29a1f2");
 
     Button_set_image(all->quick->theme,"quick/darkTheme.png");
+    StatusBar_empilerMSG(all->theme,"Theme Clair",2);
 
     all->isDark = FALSE;
   }
@@ -57,7 +58,26 @@ void theme_clicked(GtkWidget *widget, gpointer data) {
     cssDataToWidget(all->footer->this, "color:#CCC;background-color:#007ACC");
 
     Button_set_image(all->quick->theme,"quick/lightTheme.png");
+    StatusBar_empilerMSG(all->theme,"Theme Sombre",2);
 
     all->isDark = TRUE;
+  }
+}
+
+//  BOUTON MODE
+void mode_clicked(GtkWidget *widget, gpointer data) {
+
+  All *all = data;
+
+  if(all->isBash == FALSE)
+  {
+    StatusBar_empilerMSG(all->mode,"Mode Bash",1);
+    all->isBash = TRUE;
+  }
+  else
+  {
+    
+    StatusBar_empilerMSG(all->mode,"Mode Interpreteur",1);
+    all->isBash = FALSE;
   }
 }

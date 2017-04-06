@@ -74,6 +74,7 @@ typedef struct All
 {
     Fenetre *f;
     gboolean isDark;
+    gboolean isBash;
     
     //body
     Container *paned;
@@ -83,7 +84,7 @@ typedef struct All
         GtkWidget *rightFrame,*rightTitre,*console;
     //footer
         Container *footer;
-        Component *mode, *fileName, *lnCol;
+        Component *mode, *theme, *lnCol;
     //quick
     Quick *quick;
 }All;
