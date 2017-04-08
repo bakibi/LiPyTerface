@@ -36,3 +36,4 @@ typedef struct Arbre
 
 #include "progtools/lexical/registre.h"
 #include "progtools/lexical/numbers.h"
+#include "progtools/lexical/lexical.h"
