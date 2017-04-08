@@ -2,6 +2,7 @@
 
 #include "header/header.h"
 #include "body/body.h"
+#include "bodyBash/bodyBash.h"
 #include "footer/footer.h"
 
 #include "quick/quick.h"
@@ -25,6 +26,7 @@ void ApplicationMain()
     Fenetre_setIcon(f,"logo.png","logo");
 
     Container *vBox= new_Box(VERTICAL,0, FALSE);
+    all->MainContainer = vBox;
     f = Fenetre_setContainer(f,vBox);
 
     //  Header
@@ -36,16 +38,19 @@ void ApplicationMain()
 
     //  quick
     Fenetre *quick = quick_constructor(all);
-  
-    //  Add Components to vBox    
-    Box_addFirst(vBox,header        ,FALSE  ,FALSE  ,0);
-    Box_addFirst(vBox,body->this    ,TRUE   ,TRUE   ,0);
-    Box_addLast (vBox,footer->this  ,FALSE  ,FALSE  ,0);
 
-    //  Making Things Visible
+    //  bodyBash
+    Container *bodyBash = bodyBash_constructor(all);
+
+    //  Add Components to vBox    
+    Box_addFirst(vBox, header               ,FALSE  ,FALSE  ,0);
+    Box_addFirst(vBox, body->this           ,TRUE   ,TRUE   ,0);
+    Box_addFirst(vBox, bodyBash->this,      TRUE, TRUE, 0);
+    Box_addLast (vBox, footer->this         ,FALSE  ,FALSE  ,0);
+
+    //  Making Things Visible and not visible
     Fenetre_setVisible(f,1);
     Fenetre_setVisible(quick,1);
+    gtk_widget_set_visible (bodyBash->this, FALSE);
 
-    
-    
 }//end of Function

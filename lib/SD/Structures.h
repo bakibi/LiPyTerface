@@ -62,6 +62,8 @@ typedef struct Component
 typedef struct Quick
 {
     Fenetre *f;
+    Component *run;
+    Component *upload;
     Component *show;
     Component *mode;
     Component *theme;
@@ -75,16 +77,24 @@ typedef struct All
     Fenetre *f;
     gboolean isDark;
     gboolean isBash;
-    
-    //body
-    Container *paned;
-        //left
-        GtkWidget *leftFrame,*leftTitre;
-        //right
-        GtkWidget *rightFrame,*rightTitre,*console;
-    //footer
-        Container *footer;
-        Component *mode, *theme, *lnCol;
-    //quick
-    Quick *quick;
+
+    //  Main vBox Container
+        Container *MainContainer;
+        //body
+        Container *body;
+            //left
+            GtkWidget *leftFrame,*leftTitre;
+            //right
+            GtkWidget *rightFrame,*rightTitre,*console;
+        //footer
+            Container *footer;
+            Component *mode, *theme, *lnCol;
+        //quick
+        Quick *quick;
+        //bodyBash
+        Container *bodyBash;
+            //top
+            GtkWidget *topFrame,*topTitre,*editor;
+            //bottom
+            GtkWidget *bottomFrame,*bottomTitre,*output;
 }All;
