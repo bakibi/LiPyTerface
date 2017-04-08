@@ -1,12 +1,12 @@
 .fadeIn{
     opacity: 1;
-    transition: opacity 1s linear;
+    transition: opacity 1s ease-in;
     opacity: 1;
 }
 
 .fadeOut{
     opacity: 0;
-    transition: opacity 0.5s linear;
+    transition: opacity 0.5s ease-out;
     opacity: 0;
 }
 

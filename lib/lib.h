@@ -5,10 +5,19 @@
 
 //Include compososant
 
+char* utf8(char *chaine)
+{
+    return(g_locale_to_utf8 (chaine,-1,0,0,0));
+}
+
+
 //  CSS
 #include "css/cssFunctions.h"
 #include "css/animations.h"
 
+//  dialogs 
+#include "dialog/dialogs.h"
+#include "dialog/interfaceDialogs.h"
 
 // all the Containers
 #include "Containers/Container.h"
@@ -37,3 +46,5 @@
 //  CallBacks
 
 #include "CallBacks/quickCallBacks.h"
+#include "CallBacks/rightBodyCallBacks.h"
+

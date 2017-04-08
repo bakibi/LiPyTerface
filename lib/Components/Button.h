@@ -28,7 +28,7 @@ Component *new_Button_image(const char *imageFile)
     return cp;
 }//fin de la fonction
 
-
+    
 //          Atribition d'une image à un bouton
 //      Entree:
 //      Sortie:

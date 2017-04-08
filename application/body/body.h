@@ -3,10 +3,11 @@
 
 Container* body_constructor(All *all){
 
-    Container *paned = new_Paned(HORIZENTAL,500);
-    cssDataToWidget(paned->this, "background-color:#3F3F46");
-    all->paned=paned;
-    gtk_paned_set_position (GTK_PANED(paned->this), 500);
+    Container *body = new_Paned(HORIZENTAL,500);
+    all->body = body;
+    cssDataToWidget(body->this, "background-color:#3F3F46");
+    
+    gtk_paned_set_position (GTK_PANED(body->this), 500);
 
     //  Left Part
     GtkWidget *left = left_body(all);  
@@ -14,8 +15,8 @@ Container* body_constructor(All *all){
     GtkWidget *right = right_body(all);  
 
     //	Adding the 2 Parts into panned container
-    paned = Paned_add1(paned,left);
-    paned = Paned_add2(paned,right);
+    body = Paned_add1(body,left);
+    body = Paned_add2(body,right);
 
-    return( paned );
+    return( body );
 }
