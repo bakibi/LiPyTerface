@@ -67,10 +67,16 @@ typedef struct Quick
     Component *show;
     Component *mode;
     Component *theme;
+    Component *search;
     Component *quit;
     gboolean isShown;
-    
 }Quick;
+
+typedef struct historique
+{
+    gchar cmd[20][100];
+    int rang_actuel;
+}historique;
 
 typedef struct All
 {
@@ -97,4 +103,7 @@ typedef struct All
             GtkWidget *topFrame,*topTitre,*editor;
             //bottom
             GtkWidget *bottomFrame,*bottomTitre,*output;
+    //Historique
+    historique histo;
 }All;
+

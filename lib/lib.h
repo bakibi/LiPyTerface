@@ -3,21 +3,22 @@
 #include "SD/Taille.h"
 #include "Prototypes.h"
 
-//Include compososant
-
-char* utf8(char *chaine)
-{
-    return(g_locale_to_utf8 (chaine,-1,0,0,0));
-}
-
+//  fonctions aide
+#include "fonctions_aide.h"
 
 //  CSS
 #include "css/cssFunctions.h"
 #include "css/animations.h"
 
+//  Historique
+#include "historique.h"
+
 //  dialogs 
+#include "dialog/alerts.h"
 #include "dialog/dialogs.h"
 #include "dialog/interfaceDialogs.h"
+#include "dialog/menuDialogs.h"
+
 
 // all the Containers
 #include "Containers/Container.h"
@@ -28,12 +29,8 @@ char* utf8(char *chaine)
 #include "Containers/Fixed.h"
 #include "Containers/Paned.h"
 
-
-
 //all the windows
 #include "Windows/Fenetre.h"
-
-
 
 //all the component
 #include "Components/Component.h"
@@ -44,7 +41,10 @@ char* utf8(char *chaine)
 #include "Components/Button.h"
 
 //  CallBacks
-
 #include "CallBacks/quickCallBacks.h"
 #include "CallBacks/rightBodyCallBacks.h"
+#include "CallBacks/keyListener.h"
+#include "CallBacks/syntaxHighlight.h"
 
+//  Accelerators
+#include "accelerators.h"
