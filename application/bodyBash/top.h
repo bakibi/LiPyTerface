@@ -25,18 +25,8 @@ GtkWidget* top_bodyBash(All *all)
     GtkTextIter iter;
     gtk_text_buffer_get_iter_at_offset(buffer, &iter, 0);
     
-    //  START TEST
+    //  CREATION COULEUR
     gtk_text_buffer_create_tag(buffer, "blue_fg","foreground", "blue", NULL);
-    gtk_text_buffer_create_tag(buffer, "green_fg","foreground", "green", NULL);
-    gtk_text_buffer_create_tag(buffer, "red_fg","foreground", "red", NULL);
-
-    gtk_text_buffer_insert_with_tags_by_name(buffer, &iter, "\n>", -1, "red_fg", NULL);
-    gtk_text_buffer_insert_with_tags_by_name(buffer, &iter, " // Ceci est un editeur de text", -1, "green_fg", NULL);
-    gtk_text_buffer_insert_with_tags_by_name(buffer, &iter, "\n>", -1, "red_fg", NULL);
-    gtk_text_buffer_insert_with_tags_by_name(buffer, &iter, " print ", -1, "blue_fg", NULL);
-    gtk_text_buffer_insert(buffer, &iter, "ilisi ;", -1);
-    gtk_text_buffer_insert_with_tags_by_name(buffer, &iter, "\n>", -1, "red_fg", NULL);
-    //  END TEST
 
     gtk_container_add(GTK_CONTAINER(console_scroll_container), editor);
     gtk_container_add( GTK_CONTAINER(top) ,console_scroll_container );
@@ -44,6 +34,8 @@ GtkWidget* top_bodyBash(All *all)
     //  setting some spacing
     gtk_container_set_border_width ( GTK_CONTAINER(top), 20);
     gtk_container_set_border_width ( GTK_CONTAINER(console_scroll_container), 10);
+
+    g_signal_connect(buffer, "changed",G_CALLBACK(syntaxHighlight_keyWords_editor), all);
 
     return(top);
 }

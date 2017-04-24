@@ -17,26 +17,24 @@ GtkWidget* right_body(All *all)
 
     GtkWidget *console = gtk_text_view_new();
     all->console=console;
-    cssDataToWidget(console, "color : #DDDDDD;background-color: #1E1E1D;");
+    cssDataToWidget(console, "color : #0F0;background-color: #1E1E1D;");
 
     GtkTextBuffer *buffer = gtk_text_view_get_buffer(GTK_TEXT_VIEW(console));
     gtk_text_view_set_wrap_mode(GTK_TEXT_VIEW(console), GTK_WRAP_WORD);
+    
 
     GtkTextIter iter;
     gtk_text_buffer_get_iter_at_offset(buffer, &iter, 0);
-    
-    //  START TEST
+
+    //  CREATION DEs COULEURs
     gtk_text_buffer_create_tag(buffer, "blue_fg","foreground", "blue", NULL);
+    gtk_text_buffer_create_tag(buffer, "black_fg","foreground", "black", NULL);
     gtk_text_buffer_create_tag(buffer, "green_fg","foreground", "green", NULL);
     gtk_text_buffer_create_tag(buffer, "red_fg","foreground", "red", NULL);
+    gtk_text_buffer_create_tag(buffer, "gray_bg","background", "lightgray", NULL); 
+    gtk_text_buffer_create_tag(buffer, "orange_fg","foreground", "orange", NULL); 
 
-    gtk_text_buffer_insert_with_tags_by_name(buffer, &iter, "\n>", -1, "red_fg", NULL);
-    gtk_text_buffer_insert_with_tags_by_name(buffer, &iter, " // Ceci est un commentaire", -1, "green_fg", NULL);
-    gtk_text_buffer_insert_with_tags_by_name(buffer, &iter, "\n>", -1, "red_fg", NULL);
-    gtk_text_buffer_insert_with_tags_by_name(buffer, &iter, " int ", -1, "blue_fg", NULL);
-    gtk_text_buffer_insert(buffer, &iter, "x = 0 ;", -1);
-    gtk_text_buffer_insert_with_tags_by_name(buffer, &iter, "\n>", -1, "red_fg", NULL);
-    //  END TEST
+    gtk_text_buffer_insert_with_tags_by_name(buffer, &iter, "ilisi@shanks:~# ", -1, "orange_fg", NULL);
 
     gtk_container_add(GTK_CONTAINER(console_scroll_container), console);
     gtk_container_add( GTK_CONTAINER(right) ,console_scroll_container );
@@ -49,8 +47,7 @@ GtkWidget* right_body(All *all)
     g_signal_connect(buffer, "changed",G_CALLBACK(update_lnCol), all->lnCol->this);
     g_signal_connect(buffer, "mark_set", G_CALLBACK(mark_set_callback), all);
 
-    g_signal_connect(all->f->this, "key-release-event", G_CALLBACK(supprimer_console), all);
-    g_signal_connect(all->f->this, "key-press-event", G_CALLBACK(supprimer_console), all);
+    
 
     return(right);
 }
