@@ -22,7 +22,7 @@ Component *new_Button_image(const char *imageFile)
     cp->type = BUTTON;
     cp->this = gtk_button_new();
 
-    const gchar *filepath = g_strconcat( "/home/ultimate/Workspace/Gtk/LiPyTerface/img/", imageFile, NULL);
+    const gchar *filepath = g_strconcat( "img/", imageFile, NULL);
     GtkWidget *image = gtk_image_new_from_file(filepath);
     gtk_button_set_image(GTK_BUTTON(cp->this), image);
     return cp;
@@ -35,7 +35,7 @@ Component *new_Button_image(const char *imageFile)
 
 void Button_set_image(Component *btn,const char *imageFile)
 {
-    const gchar *filepath = g_strconcat( "/home/ultimate/Workspace/Gtk/LiPyTerface/img/", imageFile, NULL);
+    const gchar *filepath = g_strconcat( "img/", imageFile, NULL);
     
     GtkWidget *image = gtk_image_new_from_file(filepath);
     

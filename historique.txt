@@ -1,7 +1,3 @@
-shanksscript
-classico
-console
-output
 bash
 theme
 tp
@@ -18,3 +14,7 @@ script
 it worked
 github
 langage
+dlg
+rgoijd
+ergoig
+reda

@@ -1,6 +1,6 @@
 void menuDialog_apropos(GtkWidget *widget, gpointer data) {
 
-	GdkPixbuf *pixbuf = gdk_pixbuf_new_from_file("/home/ultimate/Workspace/Gtk/LiPyTerface/img/logo-sm.png", NULL);
+	GdkPixbuf *pixbuf = gdk_pixbuf_new_from_file("img/logo-sm.png", NULL);
 	const gchar *names[] ={ "LAGHEZALI Mohamed Reda","ELKAISSI Souhail", NULL}; 
 
 	GtkWidget *dialog = gtk_about_dialog_new();

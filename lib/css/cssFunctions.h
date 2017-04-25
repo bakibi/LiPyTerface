@@ -62,7 +62,7 @@ void cssFileToWidget(GtkWidget *w, gchar *classe )
     gtk_style_context_add_class(context,classe);
     //  recuperation du fichier w3css
 
-    GFile *file = g_file_new_for_path ("/home/ultimate/Workspace/Gtk/LiPyTerface/lib/css/myCss.css");
+    GFile *file = g_file_new_for_path ("lib/css/myCss.css");
     //  ajout du code css au widget selon la classe choisi
     gtk_css_provider_load_from_file(GTK_CSS_PROVIDER (provider),file,NULL);
     //  ajout du code css construit au widget

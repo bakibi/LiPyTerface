@@ -7,7 +7,7 @@ historique charger_historique_fichier()
     histo.rang_actuel=0;
 
     FILE *file;
-    file = fopen("/home/ultimate/Workspace/Gtk/LiPyTerface/historique.txt", "r");
+    file = fopen("historique.txt", "r");
 
     int i=0;        
     gchar line[256];
@@ -29,7 +29,7 @@ void enregistrer_historique_fichier(historique histo)
     histo.rang_actuel=19;
 
     FILE *file;
-    file = fopen("/home/ultimate/Workspace/Gtk/LiPyTerface/historique.txt", "w");
+    file = fopen("historique.txt", "w");
 
     for (int i = 0; i < 20; i++)
         fprintf(file,"%s\n", histo.cmd[i]);
