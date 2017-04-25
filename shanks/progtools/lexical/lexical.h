@@ -36,7 +36,7 @@ void lexical_compile(char str[])
         
         for (int i = 0; i < length; i++)
         {
-            strncasecmp()
+            
         }
 }//end of the function
 
