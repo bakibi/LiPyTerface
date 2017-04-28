@@ -207,7 +207,9 @@ void run_clicked(GtkWidget *widget, gpointer data) {
   GtkTextIter iter =  TextView_get_iter(all->output_comp, 0, 0);
 
   TextView_insert_text(all->output_comp,iter,cmd->output , NULL);
+  iter = TextView_get_iter_end(all->output_comp);
   TextView_insert_text(all->output_comp,iter,cmd->errors , "red_fg");
+  iter = TextView_get_iter_end(all->output_comp);
   TextView_insert_text(all->output_comp,iter,cmd->warnings , "orange_fg");
    
   //exemple - fin
