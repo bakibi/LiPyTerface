@@ -3,6 +3,7 @@
 #include "SD/Taille.h"
 #include "Prototypes.h"
 
+#include "include/include.h"
 //  fonctions aide
 #include "fonctions_aide.h"
 
@@ -52,4 +53,3 @@
 
 //  Accelerators
 #include "accelerators.h"
-#include "include/include.h"
