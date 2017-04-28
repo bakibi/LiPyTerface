@@ -101,6 +101,7 @@ typedef struct All
             //top
             GtkWidget *topFrame,*topTitre,*editor;
             //bottom
+            Component *output_comp;
             GtkWidget *bottomFrame,*bottomTitre,*output;
     //Historique
     historique histo;

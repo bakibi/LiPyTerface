@@ -17,6 +17,7 @@ Container* bottom_bodyBash(All *all)
     
     //  Creation de l'output (non éditable et curseur non visible)
     Component *output = new_TextView(TRUE);
+    all->output_comp = output;
     TextView_set_editable(output,FALSE);
     TextView_set_cursor_visible(output,FALSE);
     all->output=output->this;
@@ -31,6 +32,7 @@ Container* bottom_bodyBash(All *all)
     //  Creation des couleurs
     TextView_create_fg_color(output,"red");
     TextView_create_fg_color(output,"yellow");
+    TextView_create_fg_color(output,"orange");
 
     //  Afficher Message d'acceuil
     TextView_insert_text(output,iter, "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tBienvenue à Shanks v2.2 ! \n\n"

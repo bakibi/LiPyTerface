@@ -195,13 +195,20 @@ void run_clicked(GtkWidget *widget, gpointer data) {
   //FAIT CE QUE TU VEUT AVEC LE CONTENU DU TEXT EDITOR QUI SE TROUVE DANS 'bashText'
   Commande *cmd = new_Commande(bashText);
   cmd = Commande_interpreter(cmd);
+  
   //example - debut
   
   char stri[30000] = "";
   sprintf(stri,"%s\n %s \n%s",cmd->errors,cmd->warnings,cmd->output);
   GtkTextBuffer *buffer2=gtk_text_view_get_buffer(GTK_TEXT_VIEW(all->output));
-  gtk_text_buffer_set_text(buffer2,stri,-1);
-  //  ces 2 intructions par exemple font juste du copier coller de l'editeur vers l'output 
+  gtk_text_buffer_set_text(buffer2,"",-1);
+
+  //  Recuperer Le buffer l'iter sur la premiere position
+  GtkTextIter iter =  TextView_get_iter(all->output_comp, 0, 0);
+
+  TextView_insert_text(all->output_comp,iter,cmd->output , NULL);
+  TextView_insert_text(all->output_comp,iter,cmd->errors , "red_fg");
+  TextView_insert_text(all->output_comp,iter,cmd->warnings , "orange_fg");
    
   //exemple - fin
 }
