@@ -196,9 +196,9 @@ void run_clicked(GtkWidget *widget, gpointer data) {
   Commande *cmd = new_Commande(bashText);
   cmd = Commande_interpreter(cmd);
   //example - debut
-
+  
   GtkTextBuffer *buffer2=gtk_text_view_get_buffer(GTK_TEXT_VIEW(all->output));
-  gtk_text_buffer_set_text(buffer2,cmd->output,-1);
+  gtk_text_buffer_set_text(buffer2,cmd->errors,-1);
   //  ces 2 intructions par exemple font juste du copier coller de l'editeur vers l'output 
    
   //exemple - fin
