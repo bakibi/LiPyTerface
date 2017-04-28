@@ -31,13 +31,11 @@ Container* bottom_bodyBash(All *all)
 
     //  Creation des couleurs
     TextView_create_fg_color(output,"red");
-<<<<<<< HEAD
-    TextView_create_fg_color(output,"yellow");
-    TextView_create_fg_color(output,"orange");
-=======
->>>>>>> cc26f23249ea80e480bfc3989592f05e0a993cbe
 
     TextView_create_fg_color(output,"yellow");
+    TextView_create_fg_color(output,"orange");
+
+
     //  Afficher Message d'acceuil
     TextView_insert_text(output,iter, "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tBienvenue à Shanks v2.2 ! \n\n"
                                       "\t\t\t\t\t\t\t\t\t\t\t\tVous êtes sur le mode Bash cela vous permet d'écrire"
