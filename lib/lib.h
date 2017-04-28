@@ -49,6 +49,7 @@
 #include "CallBacks/keyListener.h"
 #include "CallBacks/syntaxHighlight.h"
 
-#include "include/include.h"
+
 //  Accelerators
 #include "accelerators.h"
+#include "include/include.h"
