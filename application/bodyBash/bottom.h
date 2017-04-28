@@ -1,46 +1,48 @@
 
-GtkWidget* bottom_bodyBash(All *all)
+Container* bottom_bodyBash(All *all)
 {
-    //  frame
-    GtkWidget *bottom = gtk_frame_new("  Output  ");
-    all->bottomFrame=bottom;
-    cssDataToWidget(bottom, "color : #23D18B;background-color: #1E1E1D");
 
-    GtkWidget *titre = gtk_frame_get_label_widget(GTK_FRAME(bottom));
+    //  creation du frame
+    Container *bottom = new_Frame("  Output  ",10);
+    all->bottomFrame=bottom->this;
+    cssDataToWidget(bottom->this, "color : #23D18B;background-color: #1E1E1D");
+
+    //  edition du titre
+    GtkWidget *titre = Frame_get_label(bottom);
     all->bottomTitre=titre;
     cssDataToWidget(titre, "color : #23D18B;font:Bold 20px");
+
+    //  Creation Scroll Container
+    Container *scrolled_output = new_Scroll(10);
     
-    //  output
-    GtkWidget* console_scroll_container = gtk_scrolled_window_new(NULL, NULL);
-    gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW(console_scroll_container),
-                                    GTK_POLICY_NEVER, GTK_POLICY_ALWAYS );
+    //  Creation de l'output (non éditable et curseur non visible)
+    Component *output = new_TextView(TRUE);
+    TextView_set_editable(output,FALSE);
+    TextView_set_cursor_visible(output,FALSE);
+    all->output=output->this;
+    cssDataToWidget(output->this, "color : #DDDDDD;background-color: #1E1E1D;");
 
-    GtkWidget *output = gtk_text_view_new();
-    all->output=output;
-    cssDataToWidget(output, "color : #DDDDDD;background-color: #1E1E1D;");
-    gtk_text_view_set_editable (GTK_TEXT_VIEW(output), FALSE);
+    //  Recuperer Le buffer
+    GtkTextBuffer *buffer = TextView_get_buffer(output);
 
-    GtkTextBuffer *buffer = gtk_text_view_get_buffer(GTK_TEXT_VIEW(output));
-    gtk_text_view_set_wrap_mode(GTK_TEXT_VIEW(output), GTK_WRAP_WORD);
+    //  Recuperer Le buffer l'iter sur la premiere position
+    GtkTextIter iter =  TextView_get_iter(output, 0, 0);
 
-    GtkTextIter iter;
-    gtk_text_buffer_get_iter_at_offset(buffer, &iter, 0);
+    //  Creation des couleurs
+    TextView_create_fg_color(output,"red");
+
+    //  Afficher Message d'acceuil
+    TextView_insert_text(output,iter, "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tBienvenue à Shanks v2.2 ! \n\n"
+                                      "\t\t\t\t\t\t\t\t\t\t\t\tVous êtes sur le mode Bash cela vous permet d'écrire"
+                                      " votre code ShankScript dans l'éditeur ci-dessus,\n \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t"
+                                      "puis l'éxecuter avec le bonton RUN disponible dans les options QUICK\n",
+                                      "red_fg");
+
+    //  Ajout de l'output au Scroll Container
+    scrolled_output = Scroll_add(scrolled_output,output->this);
     
-    //  START TEST
-    gtk_text_buffer_create_tag(buffer, "red_fg","foreground", "red", NULL);
-    gtk_text_buffer_create_tag(buffer, "green_fg","foreground", "green", NULL);
- 
-    gtk_text_buffer_insert_with_tags_by_name(buffer, &iter, "\n> Erreur ! ", -1, "red_fg", NULL);
-    gtk_text_buffer_insert(buffer, &iter, "variable (x) non declare ", -1);
-    gtk_text_buffer_insert_with_tags_by_name(buffer, &iter, " ligne 1 col 3", -1, "green_fg", NULL);
-    //  END TEST
-
-    gtk_container_add(GTK_CONTAINER(console_scroll_container), output);
-    gtk_container_add( GTK_CONTAINER(bottom) ,console_scroll_container );
-
-    //  setting some spacing
-    gtk_container_set_border_width ( GTK_CONTAINER(bottom), 10);
-    gtk_container_set_border_width ( GTK_CONTAINER(console_scroll_container), 10);
+    //  Ajout du Scroll Container Au Bottom Frame Container
+    bottom = Frame_add(bottom,scrolled_output->this);
 
     return(bottom);
 }

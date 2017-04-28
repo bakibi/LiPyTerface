@@ -8,15 +8,15 @@
 #include "quick/quick.h"
 
 void ApplicationMain()
-{
-    //  DECLARING SOME WIDGETS , because of SEGMENTAION FAULT and adding them to ALL
+{   
+    //  Déclaration de quelques composants à cause de l'éreur (SEGMENTATION FAULT) et ajout à All
     All *all=(All*)malloc(sizeof(All));
-
-    all->isDark=TRUE;
-    all->isBash=FALSE;
-
     all->footer = new_Box(HORIZENTAL, 0, FALSE);
     all->lnCol = new_StatusBar();
+
+    //  Le programme va débuter avec le mode Interpréteur et le thème Sombre
+    all->isDark=TRUE;
+    all->isBash=FALSE;
 
     //  Notre fenetre
     Fenetre *f = new_Fenetre("LyPyTerface",NORMAL,new_Taille(500,500),P_CENTER);
@@ -39,16 +39,16 @@ void ApplicationMain()
     //  quick
     Fenetre *quick = quick_constructor(all);
 
-    //  bodyBash
+    //  bodyBash (Body en mode Bash)
     Container *bodyBash = bodyBash_constructor(all);
 
-    //  Add Components to vBox    
+    //  Ajout des Containers au vBox   
     Box_addFirst(vBox, header               ,FALSE  ,FALSE  ,0);
     Box_addFirst(vBox, body->this           ,TRUE   ,TRUE   ,0);
     Box_addFirst(vBox, bodyBash->this,      TRUE, TRUE, 0);
     Box_addLast (vBox, footer->this         ,FALSE  ,FALSE  ,0);
 
-    //  Making Things Visible and not visible
+    //  Cacher/Montrer les Composant 
     Fenetre_setVisible(f,1);
     Fenetre_setVisible(quick,1);
     gtk_widget_set_visible (bodyBash->this, FALSE);

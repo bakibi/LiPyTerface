@@ -6,7 +6,7 @@
 //          Fonction de creation de Container FlowBOx
 //      Entree: NONE
 //      Sortie: Container bien initialisé
-Container *new_FlowBox()
+Container *new_FlowBox(int espace)
 {
     Container *c = (Container *)malloc(sizeof(Container));
     if(!c)
@@ -16,6 +16,8 @@ Container *new_FlowBox()
     }
     c->type = FLOWBOX;
     c->this = gtk_flow_box_new();
+
+     gtk_container_set_border_width ( GTK_CONTAINER(c->this), espace);
 
     return (Container *)c;
 }//fin de la fonction

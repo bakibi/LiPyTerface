@@ -16,7 +16,7 @@ Component *new_Button(const char *label)
 //          Function de creation d'un boutton image
 //      Entree:
 //      Sortie:
-Component *new_Button_image(const char *imageFile)
+Component *new_Button_image(const char *imageFile,gchar *tooltip )
 {
     Component *cp = new_Component();
     cp->type = BUTTON;
@@ -25,6 +25,13 @@ Component *new_Button_image(const char *imageFile)
     const gchar *filepath = g_strconcat( "img/", imageFile, NULL);
     GtkWidget *image = gtk_image_new_from_file(filepath);
     gtk_button_set_image(GTK_BUTTON(cp->this), image);
+
+    cssDataToWidget(cp->this, "background-color:rgba(0,0,0,0);border: 0px");
+    gtk_button_set_relief (GTK_BUTTON(cp->this) ,GTK_RELIEF_NONE);
+
+    if(tooltip)
+        gtk_widget_set_tooltip_text (cp->this, utf8(tooltip));
+
     return cp;
 }//fin de la fonction
 
