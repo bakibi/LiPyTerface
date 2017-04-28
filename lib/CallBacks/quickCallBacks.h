@@ -192,6 +192,7 @@ void run_clicked(GtkWidget *widget, gpointer data) {
   gchar *bashText = gtk_text_buffer_get_text(buffer1,&start,&end,FALSE);
 
   //FAIT CE QUE TU VEUT AVEC LE CONTENU DU TEXT EDITOR QUI SE TROUVE DANS 'bashText'
+  
   //example - debut
 
   GtkTextBuffer *buffer2=gtk_text_view_get_buffer(GTK_TEXT_VIEW(all->output));
