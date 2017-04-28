@@ -1,9 +1,10 @@
 #include <string.h>
 #include "SD/Structures.h"
 #include "SD/Taille.h"
+#include "include/include.h"
 #include "Prototypes.h"
 
-#include "include/include.h"
+
 //  fonctions aide
 #include "fonctions_aide.h"
 
