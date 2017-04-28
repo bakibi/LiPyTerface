@@ -28,6 +28,8 @@
 #include "Containers/Stack.h"
 #include "Containers/Fixed.h"
 #include "Containers/Paned.h"
+#include "Containers/Frame.h"
+#include "Containers/Scroll.h"
 
 //all the windows
 #include "Windows/Fenetre.h"
@@ -39,6 +41,7 @@
 #include "Components/infoBar.h"
 #include "Components/statusBar.h"
 #include "Components/Button.h"
+#include "Components/TextView.h"
 
 //  CallBacks
 #include "CallBacks/quickCallBacks.h"

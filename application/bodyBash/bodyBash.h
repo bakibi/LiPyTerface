@@ -3,16 +3,19 @@
 
 Container* bodyBash_constructor(All *all)
 {
+    //  Creation d'un Paned Container
     Container *bodyBash = new_Paned(VERTICAL,500);
     all->bodyBash=bodyBash;
     cssDataToWidget(bodyBash->this, "color : #23D18B;background-color: #1E1E1D");
     
-    GtkWidget *top      = top_bodyBash(all);
-    GtkWidget *bottom   = bottom_bodyBash(all);
+    //  Creation Partie Haut
+    Container *top      = top_bodyBash(all);
+    //  Creation Partie Bas
+    Container *bottom   = bottom_bodyBash(all);
 
-    //	Adding the 2 Parts into panned container
-    bodyBash = Paned_add1(bodyBash,top);
-    bodyBash = Paned_add2(bodyBash,bottom);
+    //	Ajout des 2 parties au Paned Container
+    bodyBash = Paned_add1(bodyBash,top->this);
+    bodyBash = Paned_add2(bodyBash,bottom->this);
 
     return( bodyBash );
 }

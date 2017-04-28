@@ -4,7 +4,7 @@ historique charger_historique_fichier()
     
     historique histo;
 
-    histo.rang_actuel=0;
+    histo.rang_actuel=19;
 
     FILE *file;
     file = fopen("historique.txt", "r");

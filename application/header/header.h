@@ -41,6 +41,7 @@ GtkWidget* header_constructor(All *all)
     g_signal_connect(G_OBJECT(montrerQuick), "activate", G_CALLBACK(show_clicked), all);
     g_signal_connect(G_OBJECT(quitter), "activate", G_CALLBACK(dialog_quit_confirmation_from_menu), all);   
 
+    g_signal_connect(G_OBJECT(raccourcis), "activate", G_CALLBACK(dialog_raccourcis), all);
     g_signal_connect(G_OBJECT(apropos), "activate", G_CALLBACK(menuDialog_apropos), all);
 
     return(menuBar);
