@@ -29,7 +29,6 @@ Container* bottom_bodyBash(All *all)
     GtkTextIter iter =  TextView_get_iter(output, 0, 0);
 
     //  Creation des couleurs
-    //  Creation des couleurs
     TextView_create_fg_color(output,"red");
     TextView_create_fg_color(output,"yellow");
 
