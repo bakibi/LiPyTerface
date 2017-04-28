@@ -197,8 +197,10 @@ void run_clicked(GtkWidget *widget, gpointer data) {
   cmd = Commande_interpreter(cmd);
   //example - debut
   
+  char stri[30000] = "";
+  sprintf(stri,"%s\n %s \n%s",cmd->errors,cmd->warnings,cmd->output);
   GtkTextBuffer *buffer2=gtk_text_view_get_buffer(GTK_TEXT_VIEW(all->output));
-  gtk_text_buffer_set_text(buffer2,cmd->errors,-1);
+  gtk_text_buffer_set_text(buffer2,stri,-1);
   //  ces 2 intructions par exemple font juste du copier coller de l'editeur vers l'output 
    
   //exemple - fin
