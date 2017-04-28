@@ -1,7 +1,7 @@
 #include <string.h>
 #include "SD/Structures.h"
 #include "SD/Taille.h"
-#include "include/include.h"
+
 #include "Prototypes.h"
 
 
@@ -21,7 +21,7 @@
 #include "dialog/interfaceDialogs.h"
 #include "dialog/menuDialogs.h"
 
-
+#include "include/include.h"
 // all the Containers
 #include "Containers/Container.h"
 #include "Containers/Box.h"

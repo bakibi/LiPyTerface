@@ -1,4 +1,5 @@
 //  BOUTON SHOW
+
 void show_clicked(GtkWidget *widget, gpointer data) {
 
   All *all = data;
@@ -192,7 +193,7 @@ void run_clicked(GtkWidget *widget, gpointer data) {
   gchar *bashText = gtk_text_buffer_get_text(buffer1,&start,&end,FALSE);
 
   //FAIT CE QUE TU VEUT AVEC LE CONTENU DU TEXT EDITOR QUI SE TROUVE DANS 'bashText'
-  Commande *cmd = new_commande(bashText);
+  Commande *cmd = new_Commande(bashText);
   cmd = Commande_interpreter(cmd);
   //example - debut
 
