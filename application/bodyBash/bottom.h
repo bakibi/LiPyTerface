@@ -33,7 +33,7 @@ Container* bottom_bodyBash(All *all)
       TextView_create_fg_color(output,"red");
 
 
-       TextView_create_fg_color(output,"orange");
+        TextView_create_fg_color(output,"orange");
         TextView_create_fg_color(output,"yellow");
 
     //  Afficher Message d'acceuil
