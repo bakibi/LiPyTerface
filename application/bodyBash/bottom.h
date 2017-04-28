@@ -30,7 +30,7 @@ Container* bottom_bodyBash(All *all)
 
     //  Creation des couleurs
     TextView_create_fg_color(output,"red");
-
+    
     //  Afficher Message d'acceuil
     TextView_insert_text(output,iter, "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tBienvenue à Shanks v2.2 ! \n\n"
                                       "\t\t\t\t\t\t\t\t\t\t\t\tVous êtes sur le mode Bash cela vous permet d'écrire"
