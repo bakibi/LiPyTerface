@@ -30,11 +30,11 @@ Container* bottom_bodyBash(All *all)
     GtkTextIter iter =  TextView_get_iter(output, 0, 0);
 
     //  Creation des couleurs
-    TextView_create_fg_color(output,"red");
+      TextView_create_fg_color(output,"red");
 
-    TextView_create_fg_color(output,"yellow");
-    TextView_create_fg_color(output,"orange");
 
+       TextView_create_fg_color(output,"orange");
+        TextView_create_fg_color(output,"yellow");
 
     //  Afficher Message d'acceuil
     TextView_insert_text(output,iter, "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tBienvenue à Shanks v2.2 ! \n\n"
