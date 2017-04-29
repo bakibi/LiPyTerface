@@ -202,7 +202,7 @@ void run_clicked(GtkWidget *widget, gpointer data) {
   sprintf(stri,"%s\n %s \n%s",cmd->errors,cmd->warnings,cmd->output);
   GtkTextBuffer *buffer2=gtk_text_view_get_buffer(GTK_TEXT_VIEW(all->output));
   gtk_text_buffer_set_text(buffer2,"",-1);
-
+  
   //  Recuperer Le buffer l'iter sur la premiere position
   GtkTextIter iter =  TextView_get_iter(all->output_comp, 0, 0);
 

@@ -13,9 +13,11 @@ Finale *new_Finale();
 Finale *Finale_addVar(Finale *f,const char *name,const char *value);
 int  Finale_varExists(Finale *f,const char *name);
 const char *Finale_varValue(Finale *f,const char *name);
+Finale *Finale_varChange(Finale *f,const char *name,const char *value);
 Finale *Finale_addStr(Finale *f,const char *name,const char *value);
 int  Finale_strExists(Finale *f,const char *name);
 const char *Finale_strValue(Finale *f,const char *name);
+Finale *Finale_strChange(Finale *f,const char *name,const char *value);
 //      les implementations
 
 
@@ -81,6 +83,22 @@ const char *Finale_varValue(Finale *f,const char *name)
 }//eof
 
 
+Finale *Finale_varChange(Finale *f,const char *name,const char *value)
+{
+    if(f == NULL) return NULL;
+     L_S_var *tmp = f->l1;
+    while(tmp)
+    {
+        if(strcmp(tmp->this.nom,name) == 0)
+            {
+                strcpy(tmp->this.value,value);
+                return f;
+            }
+        tmp = tmp->svt;
+    }//while
+    return f;
+}//eof
+
 
 
 
@@ -127,4 +145,22 @@ const char *Finale_strValue(Finale *f,const char *name)
         tmp = tmp->svt;
     }//while
     return "";
+}//eof
+
+
+
+Finale *Finale_strChange(Finale *f,const char *name,const char *value)
+{
+    if(f == NULL) return NULL;
+     L_S_str *tmp = f->l2;
+    while(tmp)
+    {
+        if(strcmp(tmp->this.nom,name) == 0)
+            {
+                strcpy(tmp->this.value,value);
+                return f;
+            }
+        tmp = tmp->svt;
+    }//while
+    return f;
 }//eof

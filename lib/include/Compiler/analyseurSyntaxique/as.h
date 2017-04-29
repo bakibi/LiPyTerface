@@ -11,25 +11,25 @@
     // Lanalyse commence ici
     if(verifier_parentheses(all)==0)
         {
-            const char *e="Erreur Syntaxique : il y a une erreur par rapport au parentheses () .\n\0";
+            const char *e="Erreur Syntaxique : il y a une erreur par rapport au parentheses () .\n";
             strcat(errors,e);
         }
 
      if(verifier_quotation(all)==0)
         {
-            const char e[]="Erreur Syntaxique : il y a une erreur par rapport au quotes \"\" .\n\0";
+            const char e[]="Erreur Syntaxique : il y a une erreur par rapport au quotes \"\" .\n";
             strcat(errors,e);
         }
 
      if(verifier_brackets(all)==0)
         {
-            const char *e = "Erreur Syntaxique : il y a une erreur par rapport au brackets {} .\n\0";
+            const char *e = "Erreur Syntaxique : il y a une erreur par rapport au brackets {} .\n";
             strcat(errors,e);
         }
     
     if(verifier_squares(all)==0)
         {
-            const char e[] = "Erreur Syntaxique : il y a une erreur par rapport au squares [] .\n\0";
+            const char e[] = "Erreur Syntaxique : il y a une erreur par rapport au squares [] .\n";
             strcat(errors,e);
         }
         

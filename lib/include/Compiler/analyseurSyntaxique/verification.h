@@ -9,6 +9,8 @@ int verifier_declaration(Lexemes *lex);
 Lexeme *verifier_arithmetique(Lexemes *lex);
 Lexemes *rassembler_nbr(Lexemes *lex);
 int verifier_nombre(const char *nbr);
+int verifier_affectation(Lexemes *lex);
+int verifier_affichage(Lexemes *lex);
 
 
 //      verifier les parentheses
@@ -156,6 +158,7 @@ int verifier_squares(Lexemes *lex)
 int verifier_declaration(Lexemes *lex)
 {
        Lexemes *tmp = lex;
+       if( tmp ->svt == NULL) return 0;
         int v = -5;
         int e = 0; // debut
                         // = ---> 1
@@ -309,4 +312,56 @@ int verifier_declaration(Lexemes *lex)
 
       }
       return e<=1;
+  }//eof
+
+
+
+
+
+
+
+
+  int verifier_affectation(Lexemes *lex)
+  {
+      int r = 1;
+      Lexemes *tmp = lex;
+    
+      tmp = tmp->svt;
+      if(tmp->svt == NULL)
+        return 0;
+        tmp = tmp->svt;
+     if(r == 1)
+        return verifier_arithmetique(tmp) == NULL;
+        
+      return 0;
+  }//eof
+
+
+
+
+
+  //    verification d un afichage est c qu il est corrent ou pas 
+  int verifier_affichage(Lexemes *lex)
+  {
+
+    Lexemes *tmp = lex;
+    int e = 0;
+    //      1       -->     " du debut
+    //      2       -->     " de la fin
+    //      3       -->     +   du debut
+    //      4       -->     + de la fin
+
+    while(tmp)
+    {
+        if(e == 0  && tmp->lex->type == 19)     e = 1;
+        if(e == 1   && tmp->lex->type == 19)    e = 2;
+        if(e == 1   && tmp->lex->type == 1 );
+
+
+        tmp  = tmp->svt;
+    }//eof
+
+
+
+      return 1;
   }

@@ -37,15 +37,29 @@ Grammaires *ase(Grammaires *tout,char *errors,char *warnings,char *output)
                 if(verifier_arrithmetique(tmp->this,f,errors) == 1)
                     {
                        char *resultz = (char *)malloc(100) ;
-                       resultz = calc_arithm(resultz,tmp->this->content->svt->svt,f);
+                       resultz = calc_arithm(resultz,tmp->this->content,f);
                        strcat(output,resultz);
                         strcat(output,"\n");
                     }
             }//fin arithmetique
             else if (tmp->this->type == 2) //le cas d une declaration
             {
-              f=  verifier_decclaration(tmp->this,f,errors,warnings);
+              verifier_decclaration(tmp->this,f,errors,warnings);
             }
+            else if (tmp->this->type == 4) //le cas d une affectation
+            {
+                Lexemes *th = tmp->this->content;
+                char result[1000] = "";
+                if(verifier_affec(tmp->this,f,errors) == 1)
+                {
+                    f =  Finale_varChange(f,th->lex->value,calc_arithm(result,th->svt->svt,f));
+                }
+                else if(verifier_affec(tmp->this,f,errors) == 2)
+                {
+
+                }
+            }// le cas de l'affecation'
+
         tmp = tmp->svt;
     }
     return NULL;

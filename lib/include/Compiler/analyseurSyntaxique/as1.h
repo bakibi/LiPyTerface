@@ -42,6 +42,14 @@ int as1(Grammaires *all,char *errors)
             if(r == 0)
                 strcat(errors,"Erreur Syntaxique : probleme dans la declaration des variables . \n");
 
+        }//fin cas declaration
+        else if(tmp->this->type == 4)
+        {
+             Lexemes *le = tmp->this->content;
+            Lexemes *tp = le;
+             int r= verifier_affectation(tp);
+            if(r == 0)
+                strcat(errors,"Erreur Syntaxique : probleme dans la affectation . \n");
         }
 
         tmp = tmp->svt;
