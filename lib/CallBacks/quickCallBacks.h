@@ -192,28 +192,42 @@ void run_clicked(GtkWidget *widget, gpointer data) {
 
   gchar *bashText = gtk_text_buffer_get_text(buffer1,&start,&end,FALSE);
 
-  //FAIT CE QUE TU VEUT AVEC LE CONTENU DU TEXT EDITOR QUI SE TROUVE DANS 'bashText'
+  //  Chargement des commandes
   Commande *cmd = new_Commande(bashText);
   cmd = Commande_interpreter(cmd);
-  
-  //example - debut
-  
+
+  //  Affichage du resulat dans le VS terminal (à enlever après)
   char stri[30000] = "";
   sprintf(stri,"%s\n %s \n%s",cmd->errors,cmd->warnings,cmd->output);
+
+  //  Nettoyer l'output
   GtkTextBuffer *buffer2=gtk_text_view_get_buffer(GTK_TEXT_VIEW(all->output));
   gtk_text_buffer_set_text(buffer2,"",-1);
-  
+
   //  Recuperer Le buffer l'iter sur la premiere position
   GtkTextIter iter =  TextView_get_iter(all->output_comp, 0, 0);
 
+  //  Recuperer l'heure et date d'execution
+  time_t rawtime;
+  struct tm * timeinfo;
+  time ( &rawtime );
+  timeinfo = localtime ( &rawtime );
+  gchar *dateHeure = g_strconcat( "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tDate et Heure d'éxécution : " ,
+                                  asctime (timeinfo) ,"\n\n", NULL);
+
+  //  Ecrire l'heure et date d'execution
+  iter = TextView_get_iter_end(all->output_comp);
+  TextView_insert_text(all->output_comp,iter, dateHeure, "green_fg");
+  
+  //  Afficher les warnings en orange
+  iter = TextView_get_iter_end(all->output_comp);
   TextView_insert_text(all->output_comp,iter,cmd->warnings , "orange_fg");
+  //  Afficher la sortie standard en couleur standard  
   iter = TextView_get_iter_end(all->output_comp);
   TextView_insert_text(all->output_comp,iter,cmd->output , NULL);
+  //  Afficher les erreurs en rouge
   iter = TextView_get_iter_end(all->output_comp);
   TextView_insert_text(all->output_comp,iter,cmd->errors , "red_fg");
-  
-   
-  //exemple - fin
 }
 
 //    Double clique sur show pour afficher l'application
