@@ -178,6 +178,7 @@ void upload_clicked(GtkWidget *widget, gpointer data) {
 
 //  BOUTON RUN
 void run_clicked(GtkWidget *widget, gpointer data) {
+  clock_t begin_timeout = clock();
 
   All *all = data;
 
@@ -228,6 +229,18 @@ void run_clicked(GtkWidget *widget, gpointer data) {
   //  Afficher les erreurs en rouge
   iter = TextView_get_iter_end(all->output_comp);
   TextView_insert_text(all->output_comp,iter,cmd->errors , "red_fg");
+
+  //  Recuperer le temps d'execution bash
+  clock_t end_timeout = clock();
+  double time_spent = (double)(end_timeout - begin_timeout) / CLOCKS_PER_SEC;
+  char output_timeout[50];
+  snprintf(output_timeout, 50, "%f", time_spent);
+  gchar *timeout_full = g_strconcat( "\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tTemps d'éxécution : " ,
+                                      output_timeout ,NULL);
+
+  //  Afficher le temps d'éxécution du programme
+  iter = TextView_get_iter_end(all->output_comp);
+  TextView_insert_text(all->output_comp,iter,timeout_full , "green_fg");
 }
 
 //    Double clique sur show pour afficher l'application
