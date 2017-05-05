@@ -8,7 +8,7 @@ Container* right_body(All *all)
     //  edition du titre
     GtkWidget *titre = Frame_get_label(right);
     all->rightTitre=titre;
-    cssDataToWidget(titre, "color : #23D18B;font:Bold 30px");
+    cssDataToWidget(titre, "color : #23D18B;font-size:30px;font-weight:bolder;");
     
     //  Creation Scroll Container
     Container *scrolled_console = new_Scroll(10);
@@ -26,6 +26,7 @@ Container* right_body(All *all)
 
     //  Creation des couleurs
     TextView_create_fg_color(console,"red");
+    TextView_create_fg_color(console,"#00B5FF");
     TextView_create_fg_color(console,"orange");
     TextView_create_fg_color(console,"black");
     TextView_create_bg_color(console,"lightgray");

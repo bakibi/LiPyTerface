@@ -10,7 +10,7 @@ Lexemes *al(const char *phrase)
     Lexemes *liste = new_Lexemes();
     int taille = strlen(phrase);
     int i=0,j=0;
-    char mots[200];
+    char mots[2000];
     int mot_en_cours = 0;
 
     

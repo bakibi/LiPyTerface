@@ -22,6 +22,25 @@ gchar* retourner_commande(GtkTextBuffer *buffer)
     return text;
 }
 
+//  retourne commande non complete qui vient d'etre saisi
+gchar* retourner_commande_non_complete(GtkTextBuffer *buffer)
+{
+    GtkTextIter start_cmd, end_cmd;
+
+    gtk_text_buffer_get_iter_at_mark(buffer, &start_cmd, gtk_text_buffer_get_insert(buffer));
+    gtk_text_buffer_get_iter_at_mark(buffer, &end_cmd, gtk_text_buffer_get_insert(buffer));
+
+    gtk_text_iter_set_line (&start_cmd, -1);
+    gtk_text_iter_set_line_offset (&start_cmd,5);
+
+    gtk_text_iter_forward_to_end (&end_cmd);
+
+    gchar *text = gtk_text_buffer_get_text(buffer, &start_cmd, &end_cmd, FALSE);
+
+    return text;
+}
+
+
 //  RESET MENU 
 void reset(GtkWidget *widget, gpointer data) {
 

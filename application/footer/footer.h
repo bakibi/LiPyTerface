@@ -3,7 +3,7 @@ Container* footer_constructor(All *all)
     Component *lnCol = all->lnCol;
 
     Container *footer = all->footer;
-    cssDataToWidget(footer->this, "color:#CCC;background-color:#007ACC;font:Bold 10px");
+    cssDataToWidget(footer->this, "color:#CCC;background-color:#007ACC;font-size:15px;font-weight:bold;");
     
     Component *mode = new_StatusBar();
     mode = StatusBar_empilerMSG(mode,"Mode Interpreteur",1);

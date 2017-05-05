@@ -20,9 +20,8 @@ int as1(Grammaires *all,char *errors)
                      strcat(errors,"Erreur Syntaxique : probleme dans l'affichage usage d un nom de variable incorret.\n");
             else if(le->lex->type == 19)// le cas d une affichage d une chaine de caractere ""
             {
-                tp = tp->svt;
-                while(tp!= NULL && tp->lex->type!=19)  tp = tp->svt;
-               if(tp->svt != NULL)
+                
+               if(verifier_affichage(tp) == 0)
                           strcat(errors,"Erreur Syntaxique : probleme dans l'affichage de la chaine de caractere . \n");
             }
         }//fin le cas d un affichage
@@ -43,7 +42,7 @@ int as1(Grammaires *all,char *errors)
                 strcat(errors,"Erreur Syntaxique : probleme dans la declaration des variables . \n");
 
         }//fin cas declaration
-        else if(tmp->this->type == 4)
+        else if(tmp->this->type == 4) // l affectation
         {
              Lexemes *le = tmp->this->content;
             Lexemes *tp = le;

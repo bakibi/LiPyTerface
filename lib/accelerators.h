@@ -5,6 +5,7 @@ void accelerator(GtkWidget *window, GdkEventKey* event, All *all)
 
   if ((event->type == GDK_KEY_PRESS) && (event->state & GDK_CONTROL_MASK)) 
   {
+
     //CTRL + L = clear console 
     if( (key_code==76 || key_code==108) && gtk_widget_has_focus(all->console) )
     {         
@@ -17,19 +18,19 @@ void accelerator(GtkWidget *window, GdkEventKey* event, All *all)
     }
 
     //CTRL + P = afficher quick
-    if( (key_code==80 || key_code==112) )
+    else if( (key_code==80 || key_code==112) )
     {
         show_clicked(NULL, all);
     }
 
     //CTRL + K = afficher l'application
-    if( (key_code==75 || key_code==107) )
+    else if( (key_code==75 || key_code==107) )
     {
         gtk_window_deiconify(GTK_WINDOW(all->f->this));
     }
 
   //CTRL + Q = Quitter
-  if( (key_code==81 || key_code==113) )
+    else if( (key_code==81 || key_code==113) )
     {
         GtkWidget *parent = all->f->this , *content_area , *label;
         int rep;
@@ -70,7 +71,7 @@ void accelerator(GtkWidget *window, GdkEventKey* event, All *all)
     }
 
     //CTRL + T = Theme
-    if( (key_code==84 || key_code==116) )
+    else if( (key_code==84 || key_code==116) )
     {
         if(all->isDark == TRUE)
         {
@@ -126,7 +127,7 @@ void accelerator(GtkWidget *window, GdkEventKey* event, All *all)
         }
     }
     //CTRL + M = Mode
-    if( (key_code==77 || key_code==109) )
+    else if( (key_code==77 || key_code==109) )
     {
         if(all->isBash == FALSE)
         {
@@ -166,7 +167,7 @@ void accelerator(GtkWidget *window, GdkEventKey* event, All *all)
     }
 
     //CTRL + R = Recherche
-    if( (key_code==82 || key_code==114) )
+    else if( (key_code==82 || key_code==114) )
     {
       
         int rep;
@@ -283,14 +284,14 @@ void accelerator(GtkWidget *window, GdkEventKey* event, All *all)
     }
 
     //CTRL + O = Ouvrir Fichier
-    if( (key_code==79 || key_code==111) )
+    else if( (key_code==79 || key_code==111) )
     {
         if(all->isBash == TRUE)
             dialog_open_file(all);
     }
 
      //CTRL + E = Executer le bash
-    if( (key_code==69 || key_code==101) )
+    else if( (key_code==69 || key_code==101) )
     {
         if(all->isBash == TRUE)
           run_clicked(NULL,all);

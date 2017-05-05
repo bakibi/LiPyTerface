@@ -127,10 +127,7 @@ void Fenetre_agrandir(Fenetre *f)
 {
 	GdkScreen * ecran = gtk_window_get_screen(GTK_WINDOW(f->this));
 
-	gint x = gdk_screen_get_width(ecran),
-		 y = gdk_screen_get_height(ecran);
-
-    gtk_window_set_default_size(GTK_WINDOW(f->this),x,y);
+    gtk_window_set_default_size(GTK_WINDOW(f->this),1366,768);
 
 }//fin de la fonction
 
