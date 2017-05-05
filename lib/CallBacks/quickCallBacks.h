@@ -192,7 +192,11 @@ void run_clicked(GtkWidget *widget, gpointer data) {
   gtk_text_iter_forward_to_end (&end);
 
   gchar *bashText = gtk_text_buffer_get_text(buffer1,&start,&end,FALSE);
+  //  Recuperation de la commande
   Commande *cmd = Space_compile(all->sp_bash,bashText);
+  //  Réinitialiser le space bash
+  all->sp_bash  = Space_delete(all->sp_bash);
+  all->sp_bash    = new_Space("bash");
   
   //  Nettoyer l'output
   GtkTextBuffer *buffer2=gtk_text_view_get_buffer(GTK_TEXT_VIEW(all->output));
