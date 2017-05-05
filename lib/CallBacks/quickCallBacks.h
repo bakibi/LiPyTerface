@@ -194,8 +194,9 @@ void run_clicked(GtkWidget *widget, gpointer data) {
   gchar *bashText = gtk_text_buffer_get_text(buffer1,&start,&end,FALSE);
 
   //  Chargement des commandes
-  Commande *cmd = new_Commande(bashText);
-  cmd = Commande_interpreter(cmd);
+  Space *sp = new_Space("space 1");
+  Commande *cmd = Space_compile(sp,bashText);
+  //cmd = Commande_interpreter(cmd);
 
   //  Affichage du resulat dans le VS terminal (à enlever après)
   char stri[30000] = "";
