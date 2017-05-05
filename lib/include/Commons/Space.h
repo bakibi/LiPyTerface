@@ -60,7 +60,7 @@ Space *Space_delete(Space *sp)
     char *f2 = (char *)malloc(25);
     strcpy(f1,"rm system/");strcat(f1,sp->name);strcat(f1,"/fileVar");
     strcpy(f2,"rm system/");strcat(f2,sp->name);strcat(f2,"/fileStr");
-    system(f1);system(f2);
+    //system(f1);system(f2);
      char *dossier =(char *)malloc(20);
     strcpy(dossier,"rmdir system/");strcat(dossier,sp->name);
    // system(dossier);
