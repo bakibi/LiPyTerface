@@ -6,6 +6,7 @@ typedef struct Lexeme
     int taille;
     int type;
     /*
+        -2 chaine de caractere
         -1  Value
         0   Nombre
         1   Operation
@@ -163,7 +164,7 @@ Lexeme *new_Lexeme(char const *l)
 int Lexeme_estKey(char const *t)
 {
 
-    const char mots[8][10] = 
+    const char mots[11][10] = 
                                     {
                                       "var",
                                       "str",
@@ -173,9 +174,12 @@ int Lexeme_estKey(char const *t)
                                       "else"
                                       "switch",
                                       "case",  
+                                      "function",
+                                      "return",
+                                      "class"
                                     };
                                     
-    for(int i=0;i<8;i++)
+    for(int i=0;i<11;i++)
         if(strcmp(t,mots[i]) == 0)
             return 1;
     return 0;                                    

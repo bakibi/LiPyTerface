@@ -3,16 +3,22 @@
 // la fonction de l analyse Semantique
  char *calc_arithm(char *result,Lexemes *lex,Finale *f);
 
-Grammaires *ase(Grammaires *tout,char *errors,char *warnings,char *output)
+
+//la fonction du analyse arithmetique
+Grammaires *ase(Grammaires *tout,char *errors,char *warnings,char *output,Finale *f)
 {
     Grammaires *tmp  = tout;
-    Finale *f = new_Finale();
+    
     while(tmp)
     {
         
         if(tmp->this->type == 0)//  la cas si on a une affichage
             {
-                if(Finale_varExists(f,tmp->this->content->lex->value) == 0 && Finale_strExists(f,tmp->this->content->lex->value) == 0)
+                if(tmp->this->content->lex->type == 19)//le cas d une chaine de caractere
+                {
+
+                }
+                else if(Finale_varExists(f,tmp->this->content->lex->value) == 0 && Finale_strExists(f,tmp->this->content->lex->value) == 0)
                     {
                         strcat(errors,"Erreur Semantique : la variable \"");
                         strcat(errors,tmp->this->content->lex->value);

@@ -16,7 +16,7 @@ typedef struct Commande
 
 //      LEs prototypes 
 Commande *new_Commande(const char *chaine);
-Commande *Commande_interpreter(Commande *cmd);
+Commande *Commande_interpreter(Commande *cmd,int *test,Finale *f);
 
 //      Les implementations
 
@@ -45,7 +45,7 @@ Commande *new_Commande(const char *chaine)
 
 
 //      interpreter une commande
-Commande *Commande_interpreter(Commande *cmd)
+Commande *Commande_interpreter(Commande *cmd,int *test,Finale *f)
 {   
     if(cmd == NULL) return NULL;
 
@@ -62,10 +62,14 @@ Commande *Commande_interpreter(Commande *cmd)
   
    
     printf("-------------Analyse Semantique\n");
-    if(strcmp(cmd->errors,"") == 0 ) listeS = ase(listeS,cmd->errors,cmd->warnings,cmd->output);//si il y a des erreur syntaxique
+    if(strcmp(cmd->errors,"") == 0 ) listeS = ase(listeS,cmd->errors,cmd->warnings,cmd->output,f);//si il y a des erreur syntaxique
  
     printf("\n-------------OUTPUT\n");
-if(strcmp(cmd->errors,"") == 0 ) printf("%s\n",cmd->output);
+if(strcmp(cmd->errors,"") == 0 ) 
+{
+    printf("%s\n",cmd->output);
+    *test = 1;
+}
     printf("\n--------------Errors\n");
     printf("%s\n",cmd->errors);
 
