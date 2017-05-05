@@ -8,7 +8,7 @@ Container* left_body(All *all)
     //  edition du titre
     GtkWidget *titre = Frame_get_label(left);
     all->leftTitre=titre;
-    cssDataToWidget(titre, "color : #23D18B;font:Bold 30px");
+    cssDataToWidget(titre, "color : #23D18B;font-size:30px;font-weight:bolder;");
     
     //  Creation Flow Container
     Container *flow     =   new_FlowBox(10);  

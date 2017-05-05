@@ -4,7 +4,7 @@
 Container* bodyBash_constructor(All *all)
 {
     //  Creation d'un Paned Container
-    Container *bodyBash = new_Paned(VERTICAL,500);
+    Container *bodyBash = new_Paned(VERTICAL,800);
     all->bodyBash=bodyBash;
     cssDataToWidget(bodyBash->this, "color : #23D18B;background-color: #1E1E1D");
     

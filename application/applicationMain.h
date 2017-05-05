@@ -14,12 +14,17 @@ void ApplicationMain()
     all->footer = new_Box(HORIZENTAL, 0, FALSE);
     all->lnCol = new_StatusBar();
 
-    //  Le programme va débuter avec le mode Interpréteur et le thème Sombre
+    //  Le programme va débuter avec le mode Interpréteur et le thème Sombre et pas de cmd en cours
     all->isDark=TRUE;
     all->isBash=FALSE;
+    all->cmd_encours=NULL;
+
+    //  Initialisation des spaces
+    all->sp_inter   = new_Space("inter");
+    all->sp_bash    = new_Space("bash");
 
     //  Notre fenetre
-    Fenetre *f = new_Fenetre("LyPyTerface",NORMAL,new_Taille(500,500),P_CENTER);
+    Fenetre *f = new_Fenetre("Shanks",NORMAL,new_Taille(500,500),P_CENTER);
     all->f=f;
     cssDataToWidget(f->this,"background-color:#3F3F46");
     Fenetre_agrandir(f);

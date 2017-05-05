@@ -83,6 +83,9 @@ typedef struct All
     gboolean isDark;
     gboolean isBash;
 
+    //  Spaces
+    Space *sp_inter, *sp_bash ;
+    
     //  Main vBox Container
         Container *MainContainer;
         //body
@@ -91,6 +94,7 @@ typedef struct All
             GtkWidget *leftFrame,*leftTitre;
             //right
             GtkWidget *rightFrame,*rightTitre,*console;
+            gchar *cmd_encours;
         //footer
             Container *footer;
             Component *mode, *theme, *lnCol;
