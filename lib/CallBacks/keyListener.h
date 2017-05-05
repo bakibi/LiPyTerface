@@ -234,6 +234,7 @@ void keyListener_releassed(GtkWidget *widget,GdkEventKey *event, gpointer data)
 
                     //retourner la cmd saisie
                     g_print("\ncmd@complete> %s\n",retourner_commande(buffer));
+                    Commande *cmd =  Space_compile(all->sp_inter,retourner_commande(buffer));
 
                     //  preparer la nouvelle ligne
                     gtk_text_buffer_insert_with_tags_by_name(buffer, &iter, "\nilisi@shanks:~# ", -1, "orange_fg", NULL);
