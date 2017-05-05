@@ -25,7 +25,7 @@
 #include "dialog/interfaceDialogs.h"
 #include "dialog/menuDialogs.h"
 
-// all the Containers
+
 #include "Containers/Container.h"
 #include "Containers/Box.h"
 #include "Containers/Grid.h"

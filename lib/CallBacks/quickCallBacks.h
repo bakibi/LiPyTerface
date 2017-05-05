@@ -194,8 +194,19 @@ void run_clicked(GtkWidget *widget, gpointer data) {
   gchar *bashText = gtk_text_buffer_get_text(buffer1,&start,&end,FALSE);
 
   //  Chargement des commandes
+<<<<<<< HEAD
+  Space *sp = new_Space("space 1");
+  Commande *cmd = Space_compile(sp,bashText);
+  //cmd = Commande_interpreter(cmd);
+
+  //  Affichage du resulat dans le VS terminal (à enlever après)
+  char stri[30000] = "";
+  sprintf(stri,"%s\n %s \n%s",cmd->errors,cmd->warnings,cmd->output);
+
+=======
   Commande *cmd = Space_compile(all->sp_bash,bashText);
   
+>>>>>>> 4ecc4c1197d74d7df98809a8ab0f317f33deec3b
   //  Nettoyer l'output
   GtkTextBuffer *buffer2=gtk_text_view_get_buffer(GTK_TEXT_VIEW(all->output));
   gtk_text_buffer_set_text(buffer2,"",-1);
