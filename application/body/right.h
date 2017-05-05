@@ -15,6 +15,7 @@ Container* right_body(All *all)
 
     //  Creation de la console
     Component *console = new_TextView(TRUE);
+    all->console_comp = console;
     all->console=console->this;
     cssDataToWidget(console->this, "color : #0F0;background-color: #1E1E1D;");
 
@@ -28,6 +29,7 @@ Container* right_body(All *all)
     TextView_create_fg_color(console,"red");
     TextView_create_fg_color(console,"#00B5FF");
     TextView_create_fg_color(console,"orange");
+    TextView_create_fg_color(console,"yellow");
     TextView_create_fg_color(console,"black");
     TextView_create_bg_color(console,"lightgray");
 
