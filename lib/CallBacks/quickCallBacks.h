@@ -192,7 +192,6 @@ void run_clicked(GtkWidget *widget, gpointer data) {
   gtk_text_iter_forward_to_end (&end);
 
   gchar *bashText = gtk_text_buffer_get_text(buffer1,&start,&end,FALSE);
-
   Commande *cmd = Space_compile(all->sp_bash,bashText);
   
   //  Nettoyer l'output
