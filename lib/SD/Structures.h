@@ -40,10 +40,6 @@ typedef struct Fenetre
 } Fenetre;
 //--------------------------------------------
 
-
-
-
-
 /* 
     La Structure Component :
 */
