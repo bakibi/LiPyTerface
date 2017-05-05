@@ -89,6 +89,7 @@ typedef struct All
             //left
             GtkWidget *leftFrame,*leftTitre;
             //right
+            Component *console_comp;
             GtkWidget *rightFrame,*rightTitre,*console;
             gchar *cmd_encours;
         //footer

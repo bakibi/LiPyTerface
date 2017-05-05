@@ -236,8 +236,23 @@ void keyListener_releassed(GtkWidget *widget,GdkEventKey *event, gpointer data)
                     g_print("\ncmd@complete> %s\n",retourner_commande(buffer));
                     Commande *cmd =  Space_compile(all->sp_inter,retourner_commande(buffer));
 
+                    //  Affichage du resultat
+                    
+                    iter = TextView_get_iter_end(all->console_comp);
+                    TextView_insert_text(all->console_comp,iter,"\n\n" , NULL);
+
+                     //  Afficher les warnings en jaune
+                    iter = TextView_get_iter_end(all->console_comp);
+                    TextView_insert_text(all->console_comp,iter,cmd->warnings , "yellow_fg");
+                    //  Afficher la sortie standard en couleur standard  
+                    iter = TextView_get_iter_end(all->console_comp);
+                    TextView_insert_text(all->console_comp,iter,cmd->output , NULL);
+                    //  Afficher les erreurs en rouge
+                    iter = TextView_get_iter_end(all->console_comp);
+                    TextView_insert_text(all->console_comp,iter,cmd->errors , "red_fg");
+
                     //  preparer la nouvelle ligne
-                    gtk_text_buffer_insert_with_tags_by_name(buffer, &iter, "\nilisi@shanks:~# ", -1, "orange_fg", NULL);
+                    TextView_insert_text(all->console_comp,iter,"\nilisi@shanks:~# " , "orange_fg");
                 }
             }
 		    //si on efface avec commande en cours
