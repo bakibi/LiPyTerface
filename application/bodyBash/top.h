@@ -2,7 +2,7 @@
 Container* top_bodyBash(All *all)
 {
     //  creation du frame
-    Container *top = new_Frame("  Editeur de Texte  ",500);
+    Container *top = new_Frame("  Editeur de Texte  ",20);
     all->topFrame=top->this;
     cssDataToWidget(top->this, "color : #23D18B;background-color: #1E1E1D;margin:30px;");
 
