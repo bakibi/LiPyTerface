@@ -193,12 +193,6 @@ void run_clicked(GtkWidget *widget, gpointer data) {
 
   gchar *bashText = gtk_text_buffer_get_text(buffer1,&start,&end,FALSE);
 
-  //  Chargement des commandes
-
-
-  //  Affichage du resulat dans le VS terminal (à enlever après)
-
-
   Commande *cmd = Space_compile(all->sp_bash,bashText);
   
   //  Nettoyer l'output
