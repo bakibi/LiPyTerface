@@ -196,7 +196,7 @@ void keyListener_releassed(GtkWidget *widget,GdkEventKey *event, gpointer data)
                     for(int i=0;i<19;i++)
                         strcpy( all->histo.cmd[i] ,all->histo.cmd[i+1]);
                     strcpy( all->histo.cmd[19] ,retourner_commande_non_complete(buffer));
-
+                    
                     g_print("\ncmd@incomplete> %s\n",retourner_commande_non_complete(buffer));
                     all->cmd_encours = g_strconcat(all->cmd_encours, retourner_commande_non_complete(buffer), NULL);
                     gtk_text_buffer_insert_with_tags_by_name(buffer, &iter, "\n---> ", -1, "#00B5FF_fg", NULL);
