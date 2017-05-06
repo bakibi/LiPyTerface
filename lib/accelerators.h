@@ -82,7 +82,7 @@ void accelerator(GtkWidget *window, GdkEventKey* event, All *all)
           cssDataToWidget(all->leftTitre, "color : #444;");
           cssDataToWidget(all->rightFrame, "color : #222;background-color: #DDD");
           cssDataToWidget(all->rightTitre, "color : #444;");
-          //  Changer les couleur du Mode Interpreteur 
+          //  Changer les couleur du Mode bash 
           cssDataToWidget(all->editor, "color : #222;background-color: #EEE");
           cssDataToWidget(all->output, "color : #222;background-color: #EEE"); 
           cssDataToWidget(all->bodyBash->this, "background-color: #CCCEDB"); 
@@ -104,18 +104,18 @@ void accelerator(GtkWidget *window, GdkEventKey* event, All *all)
           //  Changer les couleur du Mode Interpreteur 
           cssDataToWidget(all->console, "color : #DDDDDD;background-color: #1E1E1D;"); 
           cssDataToWidget(all->body->this, "background-color:#3F3F46"); 
-          cssDataToWidget(all->leftFrame, "color : #23D18B;background-color: #252526");
-          cssDataToWidget(all->leftTitre, "color : #23D18B");
-          cssDataToWidget(all->rightFrame, "color : #23D18B;background-color: #1E1E1D");
-          cssDataToWidget(all->rightTitre, "color : #23D18B");
-          //  Changer les couleur du Mode Interpreteur 
+          cssDataToWidget(all->leftFrame, "color : #0098FF;background-color: #252526");
+          cssDataToWidget(all->leftTitre, "color : #0098FF");
+          cssDataToWidget(all->rightFrame, "color : #0098FF;background-color: #1E1E1D");
+          cssDataToWidget(all->rightTitre, "color : #0098FF");
+          //  Changer les couleur du Mode bash 
           cssDataToWidget(all->editor, "color : #DDDDDD;background-color: #1E1E1D;"); 
           cssDataToWidget(all->output, "color : #DDDDDD;background-color: #1E1E1D;"); 
           cssDataToWidget(all->bodyBash->this, "background-color:#3F3F46"); 
-          cssDataToWidget(all->topFrame, "color : #23D18B;background-color: #252526");
-          cssDataToWidget(all->topTitre, "color : #23D18B");
-          cssDataToWidget(all->bottomFrame, "color : #23D18B;background-color: #1E1E1D");
-          cssDataToWidget(all->bottomTitre, "color : #23D18B");
+          cssDataToWidget(all->topFrame, "color : #0098FF;background-color: #252526");
+          cssDataToWidget(all->topTitre, "color : #0098FF");
+          cssDataToWidget(all->bottomFrame, "color : #0098FF;background-color: #1E1E1D");
+          cssDataToWidget(all->bottomTitre, "color : #0098FF");
           //  Changer les couleur du Footer
           cssDataToWidget(all->footer->this, "color:#CCC;background-color:#007ACC");
           //  Modifier l'icone du theme

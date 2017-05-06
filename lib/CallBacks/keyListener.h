@@ -70,7 +70,9 @@ void keyListener_pressed(GtkWidget *widget,GdkEventKey *event, gpointer data)
             gtk_text_buffer_place_cursor (GTK_TEXT_BUFFER(buffer), &end_cmd );
             if(all->histo.rang_actuel<19)
                 gtk_text_buffer_insert( buffer, &end_cmd, all->histo.cmd[all->histo.rang_actuel+1], -1);
-        }    
+        }
+        
+                
 	    //si on est sur la derniere ligne
         else if(gtk_text_iter_is_end (&iter))
         {
@@ -179,9 +181,12 @@ void keyListener_releassed(GtkWidget *widget,GdkEventKey *event, gpointer data)
                 if(all->cmd_encours == NULL)
                 {
                     //  MAJ de l'historique
-                    for(int i=0;i<19;i++)
-                        strcpy( all->histo.cmd[i] ,all->histo.cmd[i+1]);
-                    strcpy( all->histo.cmd[19] ,retourner_commande(buffer));
+                    if( 1<=(int)strlen(retourner_commande(buffer)) )
+                    {
+                        for(int i=0;i<19;i++)
+                            strcpy( all->histo.cmd[i] ,all->histo.cmd[i+1]);
+                        strcpy( all->histo.cmd[19] ,retourner_commande(buffer));
+                    }
 
                     g_print("\ncmd@incomplete> %s\n",retourner_commande(buffer));
                     all->cmd_encours = g_strconcat( retourner_commande(buffer), NULL);
@@ -193,10 +198,15 @@ void keyListener_releassed(GtkWidget *widget,GdkEventKey *event, gpointer data)
                 else
                 {
                     //  MAJ de l'historique
-                    for(int i=0;i<19;i++)
+                    if( 1<=(int)strlen(retourner_commande_non_complete(buffer)) )
+                    {
+                        for(int i=0;i<19;i++)
                         strcpy( all->histo.cmd[i] ,all->histo.cmd[i+1]);
-                    strcpy( all->histo.cmd[19] ,retourner_commande_non_complete(buffer));
-                    
+
+
+                        strcpy( all->histo.cmd[19] ,retourner_commande_non_complete(buffer));
+                    }
+
                     g_print("\ncmd@incomplete> %s\n",retourner_commande_non_complete(buffer));
                     all->cmd_encours = g_strconcat(all->cmd_encours, retourner_commande_non_complete(buffer), NULL);
                     gtk_text_buffer_insert_with_tags_by_name(buffer, &iter, "\n---> ", -1, "#00B5FF_fg", NULL);
@@ -210,49 +220,83 @@ void keyListener_releassed(GtkWidget *widget,GdkEventKey *event, gpointer data)
                 //  si il y a une cmd en cours 
                 if(all->cmd_encours)
                 {
-                     //  MAJ de l'historique
-                    for(int i=0;i<19;i++)
-                        strcpy( all->histo.cmd[i] ,all->histo.cmd[i+1]);
-                    strcpy( all->histo.cmd[19] ,retourner_commande_non_complete(buffer));
+                    //  MAJ de l'historique
+                    if( 1<=(int)strlen(retourner_commande_non_complete(buffer)) )
+                    {
+                        for(int i=0;i<19;i++)
+                            strcpy( all->histo.cmd[i] ,all->histo.cmd[i+1]);
+                        strcpy( all->histo.cmd[19] ,retourner_commande_non_complete(buffer));
+                    }
 
                     all->cmd_encours = g_strconcat(all->cmd_encours, retourner_commande_non_complete(buffer), NULL);
+                     //retourner la cmd saisie
                     g_print("\ncmd@complete> %s\n",all->cmd_encours);
+                    Commande *cmd =  Space_compile(all->sp_inter,all->cmd_encours);
+
+                    //  Affichage du resultat
+                    if( (int)strlen(cmd->warnings)!=0 || (int)strlen(cmd->output)!=0 ||
+                            (int)strlen(cmd->errors)!=0 )
+                    {
+                        iter = TextView_get_iter_end(all->console_comp);
+                        TextView_insert_text(all->console_comp,iter,"\n" , NULL);
+
+                            //  Afficher les warnings en orange
+                        iter = TextView_get_iter_end(all->console_comp);
+                        TextView_insert_text(all->console_comp,iter,cmd->warnings , "orange_fg");
+                        //  Afficher la sortie standard en couleur standard  
+                        iter = TextView_get_iter_end(all->console_comp);
+                        TextView_insert_text(all->console_comp,iter,cmd->output , "#0EAF47_fg");
+                        //  Afficher les erreurs en rouge
+                        iter = TextView_get_iter_end(all->console_comp);
+                        TextView_insert_text(all->console_comp,iter,cmd->errors , "red_fg");
+                        //  preparer la nouvelle ligne
+                        iter = TextView_get_iter_end(all->console_comp);
+                        TextView_insert_text(all->console_comp,iter,"\nilisi@shanks:~# " , "#00B5FF_fg");
+                    }
+                    else
+                    //  preparer la nouvelle ligne
+                    TextView_insert_text(all->console_comp,iter,"\nilisi@shanks:~# " , "#00B5FF_fg");
                     //  pas de cmd en cours maintenant
                     all->cmd_encours=NULL;
-
-                    //  preparer la nouvelle ligne
-                    gtk_text_buffer_insert_with_tags_by_name(buffer, &iter, "\n\nilisi@shanks:~# ", -1, "orange_fg", NULL);
-
                 }
                 //  pas de cmd en cours
                 else
                 {
                     //  MAJ de l'historique
-                    for(int i=0;i<19;i++)
-                        strcpy( all->histo.cmd[i] ,all->histo.cmd[i+1]);
-                    strcpy( all->histo.cmd[19] ,retourner_commande(buffer));
+                    if( 1<=(int)strlen(retourner_commande(buffer)) )
+                    {
+                        for(int i=0;i<19;i++)
+                            strcpy( all->histo.cmd[i] ,all->histo.cmd[i+1]);
+                        strcpy( all->histo.cmd[19] ,retourner_commande(buffer));
+                    }
 
                     //retourner la cmd saisie
                     g_print("\ncmd@complete> %s\n",retourner_commande(buffer));
                     Commande *cmd =  Space_compile(all->sp_inter,retourner_commande(buffer));
 
                     //  Affichage du resultat
-                    
-                    iter = TextView_get_iter_end(all->console_comp);
-                    TextView_insert_text(all->console_comp,iter,"\n\n" , NULL);
+                    if( (int)strlen(cmd->warnings)!=0 || (int)strlen(cmd->output)!=0 ||
+                            (int)strlen(cmd->errors)!=0 )
+                    {
+                        iter = TextView_get_iter_end(all->console_comp);
+                        TextView_insert_text(all->console_comp,iter,"\n" , NULL);
 
-                     //  Afficher les warnings en jaune
-                    iter = TextView_get_iter_end(all->console_comp);
-                    TextView_insert_text(all->console_comp,iter,cmd->warnings , "yellow_fg");
-                    //  Afficher la sortie standard en couleur standard  
-                    iter = TextView_get_iter_end(all->console_comp);
-                    TextView_insert_text(all->console_comp,iter,cmd->output , NULL);
-                    //  Afficher les erreurs en rouge
-                    iter = TextView_get_iter_end(all->console_comp);
-                    TextView_insert_text(all->console_comp,iter,cmd->errors , "red_fg");
-
+                            //  Afficher les warnings en orange
+                        iter = TextView_get_iter_end(all->console_comp);
+                        TextView_insert_text(all->console_comp,iter,cmd->warnings , "orange_fg");
+                        //  Afficher la sortie standard en couleur standard  
+                        iter = TextView_get_iter_end(all->console_comp);
+                        TextView_insert_text(all->console_comp,iter,cmd->output , "#0EAF47_fg");
+                        //  Afficher les erreurs en rouge
+                        iter = TextView_get_iter_end(all->console_comp);
+                        TextView_insert_text(all->console_comp,iter,cmd->errors , "red_fg");
+                        //  preparer la nouvelle ligne
+                        iter = TextView_get_iter_end(all->console_comp);
+                        TextView_insert_text(all->console_comp,iter,"ilisi@shanks:~# " , "#00B5FF_fg");
+                    }
+                    else
                     //  preparer la nouvelle ligne
-                    TextView_insert_text(all->console_comp,iter,"\nilisi@shanks:~# " , "orange_fg");
+                    TextView_insert_text(all->console_comp,iter,"\nilisi@shanks:~# " , "#00B5FF_fg");
                 }
             }
 		    //si on efface avec commande en cours

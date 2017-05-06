@@ -45,7 +45,7 @@ void mark_set_callback(GtkTextBuffer *buffer,
     //  si on est belle et bien dans la dernière ligne 
     else
         //  si le curseur est avant notre prefixe
-        if(gtk_text_iter_get_line_offset (&iter)<16)
+        if(!gtk_text_iter_ends_line (&iter))
             gtk_text_view_set_editable (GTK_TEXT_VIEW(all->console),FALSE);
         //  si le curseur est en bonne place d'écriture
         else

@@ -3,12 +3,12 @@ Container* left_body(All *all)
     //  creation du frame
     Container *left = new_Frame("  Interface  ",10);
     all->leftFrame=left->this;
-    cssDataToWidget(left->this, "color : #23D18B;background-color: #252526");
+    cssDataToWidget(left->this, "color : #23D18B;background-color: #252526;padding:10px;");
     
     //  edition du titre
     GtkWidget *titre = Frame_get_label(left);
     all->leftTitre=titre;
-    cssDataToWidget(titre, "color : #23D18B;font-size:30px;font-weight:bolder;");
+    cssDataToWidget(titre, "color : #0098FF;font-size:30px;font-weight:bolder;");
     
     //  Creation Flow Container
     Container *flow     =   new_FlowBox(10);  
