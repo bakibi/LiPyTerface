@@ -3,12 +3,12 @@ Container* right_body(All *all)
     //  creation du frame
     Container *right = new_Frame("  Console  ",10);
     all->rightFrame=right->this;
-    cssDataToWidget(right->this, "color : #23D18B;background-color: #1E1E1D");
+    cssDataToWidget(right->this, "color : #23D18B;background-color: #1E1E1D;padding:10px;");
 
     //  edition du titre
     GtkWidget *titre = Frame_get_label(right);
     all->rightTitre=titre;
-    cssDataToWidget(titre, "color : #23D18B;font-size:30px;font-weight:bolder;");
+    cssDataToWidget(titre, "color : #0098FF;font-size:30px;font-weight:bolder;");
     
     //  Creation Scroll Container
     Container *scrolled_console = new_Scroll(10);
@@ -17,7 +17,7 @@ Container* right_body(All *all)
     Component *console = new_TextView(TRUE);
     all->console_comp = console;
     all->console=console->this;
-    cssDataToWidget(console->this, "color : #0F0;background-color: #1E1E1D;");
+    cssDataToWidget(console->this, "color : #DDDDDD;background-color: #1E1E1D;");
 
     //  Recuperer Le buffer
     GtkTextBuffer *buffer = TextView_get_buffer(console);
@@ -28,8 +28,8 @@ Container* right_body(All *all)
     //  Creation des couleurs
     TextView_create_fg_color(console,"red");
     TextView_create_fg_color(console,"#00B5FF");
+    TextView_create_fg_color(console,"#0EAF47");
     TextView_create_fg_color(console,"orange");
-    TextView_create_fg_color(console,"yellow");
     TextView_create_fg_color(console,"black");
     TextView_create_bg_color(console,"lightgray");
 
@@ -43,7 +43,7 @@ Container* right_body(All *all)
 
     //  Insertion du premier prefixe console en orange
     iter = TextView_get_iter_end(console);
-    TextView_insert_text(console,iter,"ilisi@shanks:~# ","orange_fg");
+    TextView_insert_text(console,iter,"ilisi@shanks:~# ","#00B5FF_fg");
     
     //  Ajout de la Console au Scroll Container
     scrolled_console = Scroll_add(scrolled_console,console->this);

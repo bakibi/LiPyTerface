@@ -2,14 +2,14 @@
 Container* top_bodyBash(All *all)
 {
     //  creation du frame
-    Container *top = new_Frame("  Editeur de Texte  ",20);
+    Container *top = new_Frame("  Editeur de Texte  ",10);
     all->topFrame=top->this;
-    cssDataToWidget(top->this, "color : #23D18B;background-color: #1E1E1D;margin:30px;");
+    cssDataToWidget(top->this, "color : #23D18B;background-color: #1E1E1D;padding:10px;");
 
     //  edition du titre
     GtkWidget *titre = Frame_get_label(top);
     all->topTitre=titre;
-    cssDataToWidget(titre, "color : #23D18B;font-size:30px;font-weight:bolder;");
+    cssDataToWidget(titre, "color : #0098FF;font-size:30px;font-weight:bolder;");
 
     //  Creation Scroll Container
     Container *scrolled_editor = new_Scroll(10);

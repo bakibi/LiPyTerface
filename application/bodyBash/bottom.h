@@ -4,12 +4,12 @@ Container* bottom_bodyBash(All *all)
     //  creation du frame
     Container *bottom = new_Frame("  Output  ",10);
     all->bottomFrame=bottom->this;
-    cssDataToWidget(bottom->this, "color : #23D18B;background-color: #1E1E1D");
+    cssDataToWidget(bottom->this, "color : #23D18B;background-color: #1E1E1D;padding:10px;");
 
     //  edition du titre
     GtkWidget *titre = Frame_get_label(bottom);
     all->bottomTitre=titre;
-    cssDataToWidget(titre, "color : #23D18B;font-size:30px;font-weight:bolder;");
+    cssDataToWidget(titre, "color : #0098FF;font-size:30px;font-weight:bolder;");
 
     //  Creation Scroll Container
     Container *scrolled_output = new_Scroll(10);
