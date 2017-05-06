@@ -31,15 +31,16 @@ Container* right_body(All *all)
     TextView_create_fg_color(console,"#0EAF47");
     TextView_create_fg_color(console,"orange");
     TextView_create_fg_color(console,"black");
+    TextView_create_fg_color(console,"brown");
     TextView_create_bg_color(console,"lightgray");
 
     //  Afficher Message d'acceuil
-    TextView_insert_text(console,iter, "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tBienvenue à Shanks v2.2 ! \n\n"
+    TextView_insert_text(console,iter, "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tBienvenue à Shanks v2.8 ! \n\n"
                                       "\t\t\t\t\tVous êtes sur le mode Interpreteur cela vous permet de réaliser"
                                       " votre application ou de faire des traitement rapide\n \t\t\t\t\t\t\t"
                                       "en écrivant votre code ShankScript commande par commande et de "
                                       "voir le résultat immédiatement \n\n",
-                                      "red_fg");
+                                      "brown_fg");
 
     //  Insertion du premier prefixe console en orange
     iter = TextView_get_iter_end(console);
