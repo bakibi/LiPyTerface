@@ -13,7 +13,7 @@ void accelerator(GtkWidget *window, GdkEventKey* event, All *all)
         gtk_text_buffer_set_text(buffer,"",-1);
         GtkTextIter iter;
         gtk_text_buffer_get_iter_at_offset(buffer, &iter, 0);
-        gtk_text_buffer_insert_with_tags_by_name(buffer, &iter, "ilisi@shanks:~# ", -1, "orange_fg", NULL);
+        gtk_text_buffer_insert_with_tags_by_name(buffer, &iter, "ilisi@shanks:~# ", -1, "#00B5FF_fg", NULL);
 
     }
 

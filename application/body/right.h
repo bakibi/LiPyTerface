@@ -26,7 +26,7 @@ Container* right_body(All *all)
     GtkTextIter iter =  TextView_get_iter(console, 0, 0);
 
     //  Creation des couleurs
-    TextView_create_fg_color(console,"red");
+    TextView_create_fg_color(console,"red");    
     TextView_create_fg_color(console,"#00B5FF");
     TextView_create_fg_color(console,"#0EAF47");
     TextView_create_fg_color(console,"orange");

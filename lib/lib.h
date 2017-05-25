@@ -1,5 +1,7 @@
 #include <string.h>
 #include <time.h>
+#include <dirent.h>
+#include <sys/stat.h>
 
 #include "include/include.h"
 
@@ -25,6 +27,7 @@
 #include "dialog/interfaceDialogs.h"
 #include "dialog/menuDialogs.h"
 
+//  Containers
 
 #include "Containers/Container.h"
 #include "Containers/Box.h"
@@ -47,6 +50,10 @@
 #include "Components/statusBar.h"
 #include "Components/Button.h"
 #include "Components/TextView.h"
+#include "Components/Entry.h"
+#include "Components/ComboBox.h"
+#include "Components/CheckBox.h"
+#include "Components/Radio.h"
 
 //  CallBacks
 #include "CallBacks/quickCallBacks.h"

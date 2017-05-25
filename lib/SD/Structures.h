@@ -82,6 +82,13 @@ typedef struct All
     //  Spaces
     Space *sp_inter, *sp_bash ;
     
+    //NAMESPACE CHOOSER
+    Fenetre *cnx; 
+    Container *vbox;
+    Component *pseudo,*combo,*commencer;
+
+    gchar *user,*nspace;
+
     //  Main vBox Container
         Container *MainContainer;
         //body

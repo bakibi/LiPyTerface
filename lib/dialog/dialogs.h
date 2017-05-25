@@ -72,7 +72,7 @@ void dialog_quit_confirmation (GtkWidget *widget, gpointer data)
             cssDataToWidget(content_area, "color : #222;background-color:#CCCEDB;");
         gtk_container_set_border_width ( GTK_CONTAINER(content_area), 10);
         //  creation de message label
-        conv_utf8 = g_locale_to_utf8 ("Êtes vous sûr de vouloir quitter le programme ?",-1,0,0,0);
+        conv_utf8 = g_locale_to_utf8 ("Voulez vous sauvegarder votre espace de travail ?",-1,0,0,0);
         label = gtk_label_new( conv_utf8 );
         //  ajout du message au contenaire du dialog et afficher tout
         gtk_container_add (GTK_CONTAINER (content_area), label);
@@ -83,7 +83,8 @@ void dialog_quit_confirmation (GtkWidget *widget, gpointer data)
         if(rep == GTK_RESPONSE_YES)
         {
             enregistrer_historique_fichier(all->histo);
-            gtk_main_quit();
+            
+            //gtk_main_quit();
         }
             
         else

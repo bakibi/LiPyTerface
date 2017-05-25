@@ -21,7 +21,7 @@ Option 2:
 to compile
 
 ```
-gcc `pkg-config --cflags gtk+-3.0` -o out main.c `pkg-config --libs gtk+-3.0`
+gcc `pkg-config --cflags gtk+-3.0` -o out /home/ultimate/Workspace/Gtk/LiPyTerface/main.c `pkg-config --libs gtk+-3.0`
 ```
 
 

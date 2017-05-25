@@ -7,10 +7,8 @@
 
 #include "quick/quick.h"
 
-void ApplicationMain()
+void ApplicationMain(All *all)
 {   
-    //  Déclaration de quelques composants à cause de l'éreur (SEGMENTATION FAULT) et ajout à All
-    All *all=(All*)malloc(sizeof(All));
     all->footer = new_Box(HORIZENTAL, 0, FALSE);
     all->lnCol = new_StatusBar();
 
